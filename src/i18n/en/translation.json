@@ -147,8 +147,9 @@
   }, 
   "chroniclesPage": {
     "headerTitle": "Chronicles",
-    "headerIntro": "In every project, a spark. In every interface, a trace of mind. Here lie the chronicles of a digital forge."
-  },
+    "headerIntro": "In every project, a spark. In every interface, a trace of mind. Here lie the chronicles of a digital forge.",
+    "viewProject": "View Project"  
+    },
   "portfolioCard": {
         "title": {
             "title1": "Denis Portfolio",

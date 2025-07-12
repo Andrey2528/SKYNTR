@@ -4,6 +4,7 @@
   padding: 4rem 2rem;
   background-color: v.$color-bg-dark;
   color: v.$color-text-primary;
+  width: 100%;
 
   &__header {
     text-align: center;
@@ -32,6 +33,7 @@
 }
 
 .chronicle-entry {
+  position: relative;
   background-color: v.$color-gray-soft;
   padding: 2rem;
   border: v.$border-style-gray;
@@ -40,26 +42,71 @@
   transition: v.$transition-smooth;
 
   &:hover {
-    border-color: v.$color-accent-blue;
+    border-color: v.$color-accent-cyan;
     box-shadow: 0 0 10px rgba(v.$color-accent-cyan, 0.2);
   }
 
-  &__image-container{
-    width: 100%;
-    height: 250px;
-    overflow-y: hidden;
+  &__header {
+    position: relative;
+    margin-bottom: 1rem;
+
+    .rune-symbol {
+  position: absolute;
+  top: -1.2rem;
+  right: -1.2rem;
+  z-index: 2;
+  background-color: v.$color-bg-dark;
+  padding: v.$spacing-xs;
+  border-radius: v.$border-radius-sm;
+  text-align: center;
+  border: 1px solid v.$color-gray-soft;
+  box-shadow: 0 0 5px rgba(v.$color-gray-soft, 0.1);
+  display: flex;
+  align-items: center;
+  gap: v.$spacing-xs;
+  transition: v.$transition-smooth;
+
+  &__char {
+    font-size: 1.5rem;
+    color: white; // базовий колір
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  &__name {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: v.$color-text-muted;
+    letter-spacing: 0.05em;
+  }
+
+  // при наведенні на картку — світиться символ
+  .chronicle-entry:hover &__char {
+    color: v.$color-accent-cyan;
+    text-shadow: 0 0 6px rgba(v.$color-accent-cyan, 0.6);
+  }
+
+  // якщо хочеш щоб світилась вся рамка:
+  .chronicle-entry:hover & {
+    border-color: v.$color-accent-cyan;
+    box-shadow: 0 0 8px rgba(v.$color-accent-cyan, 0.3);
+  }
+}
+
   }
 
   &__image {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: v.$border-radius-sm;
     margin-bottom: 1rem;
   }
 
   &__title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: v.$color-accent-cyan;
+    margin-bottom: 0.25rem;
   }
 
   &__subtitle {
@@ -81,11 +128,11 @@
       display: inline-block;
       background-color: v.$color-accent-cyan;
       color: v.$color-bg-dark;
-      padding: 0.25rem 0.6rem;
+      padding: 0.3rem 0.6rem;
       border-radius: v.$border-radius-sm;
       font-size: 0.75rem;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
     }
   }
 
@@ -93,11 +140,12 @@
     font-size: 1rem;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    color: v.$color-text-primary;
   }
 
   &__link {
     display: inline-block;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     color: v.$color-accent-blue;
     border-bottom: 1px solid transparent;

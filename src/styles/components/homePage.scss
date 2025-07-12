@@ -2,13 +2,23 @@
 
 // --- Sidebar styles from sidebar.scss ---
 .dashboard__background {
-  position: absolute;
-  inset: 0;
+  position: fixed; // щоб блок лишався на місці при скролі
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
   background: v.$gradient-center-glow-horizontal;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; // якщо потрібно, щоб фон не заважав взаємодії
   overflow: hidden;
-
 }
+
 .dashboard__updates {
   margin-top: v.$spacing-lg;
 }
