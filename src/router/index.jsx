@@ -1,11 +1,10 @@
 import { createHashRouter } from 'react-router-dom';
 
-import { HomePage } from '@/pages';
-import RunesEveryDay from '@/pages/runesEveryDay/runesEveryDay';
+import { HomePage, RunesEveryDay, ChroniclesPage } from '@/pages';
 
 import Layout from '@/layout/layout';
 
-import { PAGE_HOME, PAGE_RUNE_EVERY_DAY } from './routes';
+import { PAGE_HOME, PAGE_RUNE_EVERY_DAY, PAGE_PORTFOLIO } from './routes';
 
 const routes = [
     {
@@ -14,6 +13,7 @@ const routes = [
         children: [
             { path: PAGE_HOME, element: <HomePage /> },
             { path: PAGE_RUNE_EVERY_DAY, element: <RunesEveryDay /> },
+            { path: PAGE_PORTFOLIO, element: <ChroniclesPage /> },
         ],
     },
 ];
