@@ -6,6 +6,7 @@ import AnimatedSpan from '@/components/particles/animatedSpan';
 import AnimatedClock from '@/components/particles/animatedClock';
 import AtmosphericUpdate from '@/components/atmosphericUpdate/AtmosphericUpdate';
 import { useTranslation } from 'react-i18next';
+import RuneParticles from '@/components/particles/RuneParticles/RuneParticles';
 
 const HomePage = () => {
     const { t } = useTranslation();
@@ -29,6 +30,7 @@ const HomePage = () => {
 
     return (
         <div className="dashboard">
+            <RuneParticles />
             <main className="dashboard__main">
                 <section className="dashboard__hero">
                     <div className="row">

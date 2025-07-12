@@ -70,6 +70,10 @@
     text-align: center;
     color: #00f0ff;
 
+      @media (max-width: 768px){
+        width: 49%;
+      }
+
     &:hover{
       box-shadow: 0 0 12px #00f0ff99;
 

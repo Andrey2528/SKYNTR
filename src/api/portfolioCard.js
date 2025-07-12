@@ -104,7 +104,7 @@ export const portfolioCard = [
         type: 'portfolioCard.type3',
         url: 'https://andrey2528.github.io/1_drop_socks/',
         img: img10,
-        description: 'portfolioCard.description10',
+        description: 'portfolioCard.description.description10',
         timeToEndWork: '7' + ' ' + 'portfolioCard.timeWork.Hours2',
     },
     {

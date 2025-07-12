@@ -4,7 +4,13 @@ import { HomePage, RunesEveryDay, ChroniclesPage } from '@/pages';
 
 import Layout from '@/layout/layout';
 
-import { PAGE_HOME, PAGE_RUNE_EVERY_DAY, PAGE_PORTFOLIO } from './routes';
+import {
+    PAGE_HOME,
+    PAGE_RUNE_EVERY_DAY,
+    PAGE_PORTFOLIO,
+    PAGE_ABOUT,
+} from './routes';
+import AboutPage from '@/pages/AboutPage';
 
 const routes = [
     {
@@ -14,6 +20,7 @@ const routes = [
             { path: PAGE_HOME, element: <HomePage /> },
             { path: PAGE_RUNE_EVERY_DAY, element: <RunesEveryDay /> },
             { path: PAGE_PORTFOLIO, element: <ChroniclesPage /> },
+            { path: PAGE_ABOUT, element: <AboutPage /> },
         ],
     },
 ];

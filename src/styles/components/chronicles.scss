@@ -51,46 +51,46 @@
     margin-bottom: 1rem;
 
     .rune-symbol {
-  position: absolute;
-  top: -1.2rem;
-  right: -1.2rem;
-  z-index: 2;
-  background-color: v.$color-bg-dark;
-  padding: v.$spacing-xs;
-  border-radius: v.$border-radius-sm;
-  text-align: center;
-  border: 1px solid v.$color-gray-soft;
-  box-shadow: 0 0 5px rgba(v.$color-gray-soft, 0.1);
-  display: flex;
-  align-items: center;
-  gap: v.$spacing-xs;
-  transition: v.$transition-smooth;
+      position: absolute;
+      top: -1.2rem;
+      right: -1.2rem;
+      z-index: 2;
+      background-color: v.$color-bg-dark;
+      padding: v.$spacing-xs;
+      border-radius: v.$border-radius-sm;
+      text-align: center;
+      border: 1px solid v.$color-gray-soft;
+      box-shadow: 0 0 5px rgba(v.$color-gray-soft, 0.1);
+      display: flex;
+      align-items: center;
+      gap: v.$spacing-xs;
+      transition: v.$transition-smooth;
 
-  &__char {
-    font-size: 1.5rem;
-    color: white; // базовий колір
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-  }
+      &__char {
+        font-size: 1.5rem;
+        color: white; // базовий колір
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
 
-  &__name {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    color: v.$color-text-muted;
-    letter-spacing: 0.05em;
-  }
+      &__name {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        color: v.$color-text-muted;
+        letter-spacing: 0.05em;
+      }
 
-  // при наведенні на картку — світиться символ
-  .chronicle-entry:hover &__char {
-    color: v.$color-accent-cyan;
-    text-shadow: 0 0 6px rgba(v.$color-accent-cyan, 0.6);
-  }
+      // при наведенні на картку — світиться символ
+      .chronicle-entry:hover &__char {
+        color: v.$color-accent-cyan;
+        text-shadow: 0 0 6px rgba(v.$color-accent-cyan, 0.6);
+      }
 
-  // якщо хочеш щоб світилась вся рамка:
-  .chronicle-entry:hover & {
-    border-color: v.$color-accent-cyan;
-    box-shadow: 0 0 8px rgba(v.$color-accent-cyan, 0.3);
-  }
-}
+      // якщо хочеш щоб світилась вся рамка:
+      .chronicle-entry:hover & {
+        border-color: v.$color-accent-cyan;
+        box-shadow: 0 0 8px rgba(v.$color-accent-cyan, 0.3);
+      }
+    }
 
   }
 
@@ -100,6 +100,7 @@
     object-fit: cover;
     border-radius: v.$border-radius-sm;
     margin-bottom: 1rem;
+        filter: grayscale(90%);
   }
 
   &__title {

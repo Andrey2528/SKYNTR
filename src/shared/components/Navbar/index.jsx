@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import '@/styles/index.scss';
 import SvgController from '@/utils/svgColntoller';
 import { NavLink } from 'react-router-dom';
-import { PAGE_HOME, PAGE_RUNE_EVERY_DAY } from '@/router/routes';
+import {
+    PAGE_HOME,
+    PAGE_RUNE_EVERY_DAY,
+    PAGE_PORTFOLIO,
+    PAGE_ABOUT,
+} from '@/router/routes';
 
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -16,9 +21,14 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
             name: 'chronicles',
             labelKey: 'nav.chronicles',
             icon: 'chronicles',
-            path: '/chronicles',
+            path: PAGE_PORTFOLIO,
         },
-        { name: 'about', labelKey: 'nav.about', icon: 'about', path: '/about' },
+        {
+            name: 'about',
+            labelKey: 'nav.about',
+            icon: 'about',
+            path: PAGE_ABOUT,
+        },
         {
             name: 'rune',
             labelKey: 'nav.rune',
@@ -29,9 +39,13 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
 
     return (
         <aside className={`dashboard__sidebar ${collapsed ? 'collapsed' : ''}`}>
-            <div className="dashboard__sidebar__logo">
+            <NavLink
+                to={PAGE_HOME}
+                key={PAGE_HOME}
+                className="dashboard__sidebar__logo"
+            >
                 {collapsed ? 'S' : 'SKYNTR'}
-            </div>
+            </NavLink>
 
             <button
                 className="dashboard__sidebar__toggle-btn"
