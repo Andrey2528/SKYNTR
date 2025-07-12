@@ -1,7 +1,7 @@
 {
   "nav": {
     "main": "Main",
-    "portfolio": "Portfolio",
+    "chronicles": "Сhronicles",
     "about": "About",
     "rune": "Rune of the day"
   },
@@ -19,6 +19,7 @@
     "odinModeReleased": "Odin Mode Released"
   },
   "runes": {
+    "allRunesTitle": "Список всіх рун",
     "fehu": {
         "meaning": "Wealth, abundance, success.",
         "description": "Fehu embodies beginnings, material well-being, and new opportunities. It symbolizes gain, the energy of accumulation, and achievement."
@@ -143,5 +144,62 @@
     "text24": "DNA code synchronized with the rhythm of the cosmos", 
     "text25": "The Moon’s shadow closes old thoughts — reboot", 
     "text26": "Portal to Muspelheim opened. Caution: fire of change"
-  }
+  }, 
+  "chroniclesPage": {
+    "headerTitle": "Chronicles",
+    "headerIntro": "In every project, a spark. In every interface, a trace of mind. Here lie the chronicles of a digital forge.",
+    "viewProject": "View Project"  
+    },
+  "portfolioCard": {
+        "title": {
+            "title1": "Denis Portfolio",
+            "title2": "Konstruct",
+            "title3": "Fair Partner",
+            "title4": "People Tobacco",
+            "title5": "Meat Hammer Site",
+            "title6": "Manipura",
+            "title7": "Batumi Racing Club",
+            "title8": "Sketch2Site Development",
+            "title9": "Sers",
+            "title10": "Biko Butik",
+            "title11": "Andriy Zhukov",
+            "title12": "Barbecue Calculator"
+        },
+        "description": {
+            "description1": "Denis's personal portfolio website, designed to showcase foundational web development skills. Ideal for a beginner's portfolio.",
+            "description2": "A business card website for Konstruct, serving as an example of basic web development capabilities. Ideal for a beginner's portfolio.",
+            "description3": "A corporate website developed for the Polish company Fair Partner. This collaborative project with Meat Hammer Studio ensures an effective online presence.",
+            "description4": "A website for People Tobacco, a hookah tobacco manufacturer, showcasing their products and brand. Focused on an attractive display of their assortment.",
+            "description5": "The official corporate website for Meat Hammer Studio, where I worked since 2020. This project demonstrates the studio's capabilities and my team contribution.",
+            "description6": "An elegant business card website for the Manipura yoga center. Designed to create a serene and inviting online presence that reflects the philosophy of yoga.",
+            "description7": "A website created for Europe's largest go-kart track, Batumi Racing Club in Georgia. Developed to provide information about the club's services and events.",
+            "description8": "A website commissioned by the international web development company Sketch2Site Development. The project highlights capabilities for rapid and high-quality implementation.",
+            "description9": "A project completed for the Spanish web development company Sers. Finished in just 50 hours, demonstrating efficiency and speed in task execution.",
+            "description10": "A business card website for the Biko Butik online store. Created for convenient product presentation and attracting customers in the e-commerce sector.",
+            "description11": "Andriy Zhukov's personal portfolio website, showcasing his professional skills and web development projects. Optimized for SEO and user convenience.",
+            "description12": "An interactive online calculator to determine the required amount of meat for a barbecue party. A simple and useful tool for event planning."
+        },
+        "subTitle": "Website",
+        "role1": "Developer",
+        "role2": "Designer",
+        "role3": "Project Manager",
+        "role4": "Team Lead",
+        "platform1": "Static Website",
+        "platform2": "Responsive Website",
+        "type1": "E-commerce",
+        "type2": "One-page Website",
+        "type3": "Multi-page Website",
+        "urlNotAviable": "The website is currently not publicly available",
+        "old": "(Old design)",
+        "timeWork": {
+            "title": "Time Spent",
+            "Hours": "hour",
+            "Hours_plural": "hours",
+            "Days": "day",
+            "Days_plural": "days",
+            "Month": "month",
+            "Month_plural": "months",
+            "Year": "year"
+        }
+    }
 }

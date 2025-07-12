@@ -14,10 +14,10 @@ const NavbarAside = () => {
     const menu = [
         { name: 'main', labelKey: 'nav.main', icon: 'home', path: PAGE_HOME },
         {
-            name: 'portfolio',
-            labelKey: 'nav.portfolio',
-            icon: 'portfolio',
-            path: '/portfolio',
+            name: 'chronicles',
+            labelKey: 'nav.chronicles',
+            icon: 'chronicles',
+            path: '/chronicles',
         },
         { name: 'about', labelKey: 'nav.about', icon: 'about', path: '/about' },
         {

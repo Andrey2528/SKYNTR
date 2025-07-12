@@ -23,6 +23,8 @@
   .rune-symbol {
     font-size: 64px;
     margin-bottom: 16px;
+                color: v.$color-accent-cyan;
+    text-shadow: 0 0 6px rgba(v.$color-accent-cyan, 0.6);
   }
 
   .rune-title {
@@ -70,6 +72,7 @@
 
     &:hover{
       box-shadow: 0 0 12px #00f0ff99;
+
     }
   }
 }

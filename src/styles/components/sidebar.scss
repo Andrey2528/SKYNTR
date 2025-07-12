@@ -4,6 +4,9 @@
 .dashboard__sidebar {
   background-color: v.$color-bg-dark;
   width: 280px;
+  width: 280px;
+min-width: 280px;
+max-width: 280px;
   min-height: 100vh;
   box-shadow: v.$shadow-soft;
   font-family: v.$font-family-base;

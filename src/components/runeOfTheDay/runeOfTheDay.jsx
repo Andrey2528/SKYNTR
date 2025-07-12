@@ -29,9 +29,7 @@ const RuneOfTheDay = () => {
                     <p className="rune-desc">{t(rune.descriptionKey)}</p>
                 </section>
                 <section className="rune-container">
-                    <h2 className="rune-title">
-                        {t('runePage.allRunesTitle')}
-                    </h2>
+                    <h2 className="rune-title">{t('runes.allRunesTitle')}</h2>
                     {/* Translate title */}
                     <div className="rune-list">
                         {runes.map((item) => (
