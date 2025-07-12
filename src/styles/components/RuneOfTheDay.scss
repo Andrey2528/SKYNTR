@@ -1,0 +1,75 @@
+@use '@/styles/partials/_variables.scss' as v;
+.rune-page  {
+  background: v.$color-bg-dark;
+  font-family: 'Orbitron', sans-serif;
+  width: 100%;
+  padding: v.$spacing-md;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
+  border: 1px solid v.$color-accent-cyan;
+  border-left: none;
+
+  .rune-of-the-day{
+    border-radius: v.$border-radius-md;
+    background: v.$color-bg-dark;
+    text-align: center;
+    color: #00f0ff;
+    box-shadow: 0 0 12px #00f0ff99;
+  }
+
+  .rune-symbol {
+    font-size: 64px;
+    margin-bottom: 16px;
+  }
+
+  .rune-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+        color: v.$color-text-primary;
+  }
+
+  .rune-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .rune-meaning {
+    font-size: 1rem;
+    opacity: 0.8;
+    color: v.$gradient-accent;
+  }
+  .rune-desc{
+        color: v.$color-text-primary;
+  }
+
+  .rune-container{
+        margin-top: v.$spacing-xl;
+  }
+  .rune-list{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: v.$spacing-md;
+    justify-content: space-between;
+        row-gap: 32px;
+  }
+  .rune-card{
+    width: 32%;
+    background: v.$color-bg-dark;
+    border-radius: v.$border-radius-md;
+    border: v.$border-style-gray;
+    padding: 24px;
+    text-align: center;
+    color: #00f0ff;
+
+    &:hover{
+      box-shadow: 0 0 12px #00f0ff99;
+    }
+  }
+}

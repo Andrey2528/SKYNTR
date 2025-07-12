@@ -1,0 +1,15 @@
+@use 'partials/reset.scss';
+@use 'partials/_fonts.scss';
+@use 'partials/_header.scss';
+@use 'partials/_footer.scss';
+@use 'partials/_buttons.scss';
+@use 'partials/_variables.scss';
+@use 'partials/_text.scss';
+@use 'partials/_general.scss';
+
+@use 'components/navbar.scss';
+@use 'components/homePage.scss';
+@use 'components/sidebar.scss';
+@use 'components/RunesIntro.scss';
+@use 'components/RuneOfTheDay.scss';
+@use 'components/AtmosphericUpdate.scss';

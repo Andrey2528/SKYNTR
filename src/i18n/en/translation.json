@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "main": "Main",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "rune": "Rune of the day"
+  },
+  "home": {
+    "welcomeText": "Welcome to Skyntr, the cutting-edge frontend platform that fuses modern web technologies with the timeless power of ancient runes.",
+    "getStarted": "Get Started",
+    "projects": "PROJECTS",
+    "yearsOfWork": "YEARS\nOF WORK",
+    "year_one": "year",
+    "year_other": "years",
+    "month_one": "month",
+    "month_other": "months",
+    "watchword": "WATCHWORD",
+    "watchwordDesc": "Code like a viking. Ship like a god.",
+    "odinModeReleased": "Odin Mode Released"
+  },
+  "runes": {
+    "fehu": {
+        "meaning": "Wealth, abundance, success.",
+        "description": "Fehu embodies beginnings, material well-being, and new opportunities. It symbolizes gain, the energy of accumulation, and achievement."
+    },
+    "uruz": {
+        "meaning": "Strength, health, courage.",
+        "description": "Uruz speaks of inner strength, endurance, and potential. It is a rune of action and transformation through challenges."
+    },
+    "thurisaz": {
+        "meaning": "Protection, conflict, challenge.",
+        "description": "Thurisaz is the energy of force and protection. It urges caution but also decisive action in difficult situations."
+    },
+    "ansuz": {
+        "meaning": "Communication, wisdom, divine inspiration.",
+        "description": "Ansuz is connected with the wisdom of the gods, inspiration, and clear thinking. It is a rune of language, knowledge, and intellect."
+    },
+    "raidho": {
+        "meaning": "Journey, movement, travel.",
+        "description": "Raidho indicates a journey – both physical and spiritual. It symbolizes the path, the rhythm of life, and the right direction."
+    },
+    "kenaz": {
+        "meaning": "Knowledge, creativity, fire.",
+        "description": "Kenaz is a torch that gives light. It embodies creativity, the unfolding of potential, and inspiration."
+    },
+    "gebo": {
+        "meaning": "Gift, partnership, generosity.",
+        "description": "Gebo symbolizes a gift, the exchange of energy, and partnership. It teaches balancing what you give and receive."
+    },
+    "wunjo": {
+        "meaning": "Joy, harmony, success.",
+        "description": "Wunjo brings joy, harmony, and emotional balance. It is a rune of well-being and contentment."
+    },
+    "hagalaz": {
+        "meaning": "Disruption, change, hail.",
+        "description": "Hagalaz is a rune of chaos and necessary destruction. It clears away the old to make room for the new."
+    },
+    "nauthiz": {
+        "meaning": "Need, constraint, resistance.",
+        "description": "Nauthiz speaks of difficulties and inner needs. It teaches patience, self-control, and resilience."
+    },
+    "isa": {
+        "meaning": "Stillness, ice, blockage.",
+        "description": "Isa is a symbol of a frozen state. It is a time for stillness, reflection, and introspection."
+    },
+    "jera": {
+        "meaning": "Harvest, reward, cycle.",
+        "description": "Jera is the rune of harvest. It reminds us that everything has its time, and effort always bears fruit."
+    },
+    "eihwaz": {
+        "meaning": "Endurance, transformation, resilience.",
+        "description": "Eihwaz is a symbol of transformation and inner strength. It guides through difficulties to profound changes."
+    },
+    "perthro": {
+        "meaning": "Mystery, fate, secrets.",
+        "description": "Perthro is the rune of fate and the hidden. It points to the unexpected, intuition, and esoteric knowledge."
+    },
+    "algiz": {
+        "meaning": "Protection, defense, instinct.",
+        "description": "Algiz is a protective rune. It awakens instincts, intuition, and spiritual support."
+    },
+    "sowilo": {
+        "meaning": "Success, vitality, the sun.",
+        "description": "Sowilo is the sun, triumph, and inner light. It indicates enlightenment, energy, and clarity."
+    },
+    "tiwaz": {
+        "meaning": "Justice, honor, leadership.",
+        "description": "Tiwaz is the warrior and truth rune. It embodies honor, courage, and sacrifice for a higher purpose."
+    },
+    "berkano": {
+        "meaning": "Growth, fertility, new beginnings.",
+        "description": "Berkano is the rune of the feminine principle, fertility, and rebirth. It symbolizes new beginnings and growth."
+    },
+    "ehwaz": {
+        "meaning": "Movement, progress, trust.",
+        "description": "Ehwaz symbolizes trust and moving forward. It is a rune of partnership, harmonious development, and progress."
+    },
+    "mannaz": {
+        "meaning": "Humanity, the self, community.",
+        "description": "Mannaz is the rune of humanity, individuality, and social unity. It helps to better understand oneself and others."
+    },
+    "laguz": {
+        "meaning": "Water, intuition, emotion.",
+        "description": "Laguz is the flow of life, water, the subconscious. It leads to deep emotions, intuition, and dreams."
+    },
+    "ingwaz": {
+        "meaning": "Fertility, potential, peace.",
+        "description": "Ingwaz is a rune of tranquility, inner strength, and completeness. It signifies maturation and wholeness."
+    },
+    "dagaz": {
+        "meaning": "Breakthrough, transformation, daylight.",
+        "description": "Dagaz is the rune of a new day, insight, and great transition. It brings clarity and renewal."
+    },
+    "othala": {
+        "meaning": "Heritage, inheritance, home.",
+        "description": "Othala is the rune of lineage, heritage, and spiritual home. It is associated with deep values and roots."
+    }
+  },
+  "atmosphericUpdates": {
+    "text1":  "The Ansuz rune flashed by — a day of inspiration", 
+    "text2":  "The gates of Midgard have slightly opened...", 
+    "text3":  "The spirits of code are resting today. Maybe you should too", 
+    "text4":  "The flame of Kenaz illuminated a new idea in the darkness", 
+    "text5":  "The mechanisms of Yggdrasil turned one more cycle", 
+    "text6":  "Thor is thundering — time for decisive changes", 
+    "text7":  "The icy silence of Niflheim — calm before the breakthrough", 
+    "text8":  "The Wyrd web is woven — not everything is random", 
+    "text9":  "The shadow of Helheim brought reflection", 
+    "text10": "Odin whispered a thought… not fully understood yet", 
+    "text11": "Ideas flash like lightning in Alfheim", 
+    "text12": "Protection activated: the Algiz rune guards your peace", 
+    "text13": "The boundary between worlds is thin… time to look inside yourself", 
+    "text14": "Bifröst lit up with new colors — energy is near", 
+    "text15": "The Perthro rune opens new possibilities — choose wisely", 
+    "text16": "Signal from Valhalla received. Time to act", 
+    "text17": "Look into Urd’s reflection — the past speaks", 
+    "text18": "Light from Asgard guides the way forward", 
+    "text19": "Sleep mode activated. Restarting in progress", 
+    "text20": "Old runes whisper stories from forgotten scripts", 
+    "text21": "Cycle of rebirth activated. Start anew — stronger", 
+    "text22": "Loki’s mask has fallen — truth is closer than it seems", 
+    "text23": "The Isa rune freezes time — seize the moment", 
+    "text24": "DNA code synchronized with the rhythm of the cosmos", 
+    "text25": "The Moon’s shadow closes old thoughts — reboot", 
+    "text26": "Portal to Muspelheim opened. Caution: fire of change"
+  }
+}

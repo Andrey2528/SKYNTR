@@ -1,0 +1,91 @@
+@use '@/styles/partials/_variables.scss' as v;
+
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.Layout {
+    min-height: 100vh;
+        width: 96%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+
+
+    &__section {
+        flex: 1;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+    }
+}
+body {
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-base;
+    color: v.$color-text-primary;
+    background-color: v.$color-accent-cyan;
+    line-height: 1.6;
+}
+h1,
+h2,
+h3,
+h4 {
+    text-transform: v.$text-transform-headings;
+    font-weight: v.$font-weight-bold;
+    letter-spacing: v.$letter-spacing-wide;
+}
+a {
+    color: v.$color-accent-blue;
+    text-decoration: none;
+    transition: v.$transition-fast;
+    &:hover {
+        color: v.$color-accent-cyan;
+    }
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 1rem;
+
+  button {
+    background: transparent;
+    border: 1.5px solid #0ff;
+    color: #0ff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover:not(.active) {
+      background-color: rgba(0, 255, 255, 0.15);
+    }
+
+    &.active {
+      background-color: #0ff;
+      color: #000;
+      pointer-events: none;
+      box-shadow: 0 0 10px #0ff800;
+    }
+  }
+}
