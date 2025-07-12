@@ -33,24 +33,23 @@
 
   background: v.$color-bg-dark;
   color: v.$color-text-primary;
-  display: flex;
   font-family: v.$font-family-base;
-  box-sizing: border-box;
-    border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
+  box-sizing: border-box; // Важливо для коректного обчислення розмірів з padding та border
+  border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
 
 
   &__main {
     flex: 1;
-  min-height: 100vh;
+    min-height: 100vh;
 
     background: transparent;
-  border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
+    border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
     padding: v.$spacing-xl v.$spacing-xl v.$spacing-xl v.$spacing-lg;
     display: flex;
     flex-direction: column;
     gap: v.$spacing-xl;
-                    border: 1px solid v.$color-accent-cyan;
-      border-left: none;
+    border: 1px solid v.$color-accent-cyan;
+    border-left: none;
   }
 
   &__hero {
@@ -59,17 +58,17 @@
     overflow: hidden;
 
     #tsparticles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
     }
 
     > *:not(#tsparticles) {
-        position: relative;
-        z-index: 2;
+      position: relative;
+      z-index: 2;
     }
   }
 
@@ -79,6 +78,7 @@
     color: v.$color-accent-cyan;
     letter-spacing: v.$letter-spacing-wide;
     margin-bottom: v.$spacing-md;
+    overflow-wrap: break-word; // Додано для перенесення довгих заголовків
   }
 
   &__subtitle {
@@ -86,6 +86,7 @@
     color: v.$color-text-muted;
     margin-bottom: v.$spacing-lg;
     max-width: 600px;
+    overflow-wrap: break-word; // Додано для перенесення довгих підзаголовків
   }
 
   &__cta {
@@ -110,6 +111,7 @@
     margin-bottom: v.$spacing-lg;
   }
 }
+
 .stat-card {
   flex: 1;
   background: transparent;
@@ -121,16 +123,16 @@
   align-items: flex-start;
   min-width: 180px;
 
-      &:hover{
-      box-shadow: 0 0 12px #00f0ff99;
-    }
-
+  &:hover {
+    box-shadow: 0 0 12px #00f0ff99;
+  }
 
   &__label {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: v.$color-accent-cyan;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    overflow-wrap: break-word; // Додано для перенесення
   }
 
   &__value {
@@ -139,12 +141,14 @@
     color: v.$color-accent-blue;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
     transition: all 0.3s ease;
+    overflow-wrap: break-word; // Додано для перенесення
   }
 
   &__desc {
     color: v.$color-text-muted;
     font-size: 1rem;
     margin-top: v.$spacing-sm;
+    overflow-wrap: break-word; // Додано для перенесення
   }
 }
 
@@ -176,50 +180,249 @@
     color: v.$color-accent-cyan;
     font-weight: v.$font-weight-bold;
     font-size: 1.1rem;
-    
+    overflow-wrap: break-word; // Додано для перенесення
+
   }
 
   &__time {
     color: v.$color-text-muted;
     font-size: 0.95rem;
+    overflow-wrap: break-word; // Додано для перенесення
   }
 
   &__desc {
     color: v.$color-text-primary;
     font-size: 1rem;
+    overflow-wrap: break-word; // Додано для перенесення
   }
-      .icon {
-        margin-right: 0.6rem;
-        font-size: 1.5rem;
-    }
+
+  .icon {
+    margin-right: 0.6rem;
+    font-size: 1.5rem;
+  }
 }
+
 .animated-clock {
-    position: absolute;
-    top: 20px;
-    right: 32px;
-    color: #00f0ff;
-    font-family: 'Orbitron', monospace;
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  color: #00f0ff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+  text-align: right;
+  z-index: 100;
+
+  .clock-time {
+    display: flex;
+    gap: 2px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    overflow-wrap: break-word; // Додано для перенесення
+
+    span {
+      min-width: 1ch;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  .clock-date {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    opacity: 0.8;
+    overflow-wrap: break-word; // Додано для перенесення
+  }
+}
+
+/* --- Media queries --- */
+
+@media (max-width: v.$maxMobile) { // 768px
+  .dashboard {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-radius: 0;
+    box-shadow: none;
+
+    &__main {
+      border-radius: 0;
+      border: none;
+      padding: v.$spacing-lg v.$spacing-md;
+      gap: v.$spacing-lg;
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+      text-align: center;
+      max-width: 100%;
+      margin: 0 auto v.$spacing-md;
+    }
+
+    &__cta {
+      font-size: 1rem;
+      padding: v.$spacing-xs v.$spacing-md;
+      margin: 0 auto;
+      display: block;
+    }
+
+    &__stats {
+      flex-direction: column;
+      gap: v.$spacing-md;
+    }
+  }
+
+  .stat-card {
+    padding: v.$spacing-md;
+    align-items: center;
+
+    &__label {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    &__value {
+      font-size: 1.6rem;
+    }
+
+    &__desc {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+
+  .update-card {
+    padding: v.$spacing-md;
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__time {
+      font-size: 0.8rem;
+    }
+
+    &__desc {
+      font-size: 0.95rem;
+    }
+
+    .icon {
+      font-size: 1.2rem;
+    }
+  }
+
+  .updates__title {
     font-size: 1rem;
-    text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
-    text-align: right;
-    z-index: 100;
+    text-align: center;
+  }
+
+  .animated-clock {
+    top: v.$spacing-sm;
+    right: v.$spacing-sm;
 
     .clock-time {
-        display: flex;
-        gap: 2px;
-        font-size: 1.5rem;
-        font-weight: 700;
-
-        span {
-            min-width: 1ch;
-            display: inline-block;
-            text-align: center;
-        }
+      font-size: 1.2rem;
     }
 
     .clock-date {
-        font-size: 0.8rem;
-        margin-top: 4px;
-        opacity: 0.8;
+      font-size: 0.7rem;
     }
+  }
+
+  .dashboard__background {
+    background-size: cover;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+/* Оптимізація для екранів менше 720px */
+@media (max-width: 719px) { /* Використовуємо 719px, щоб не перетинатися з $maxMobile: 768px */
+  .dashboard {
+    &__main {
+      padding: v.$spacing-md v.$spacing-xs; /* Зменшено padding ще більше: 16px зверху/знизу, 4px з боків */
+      gap: v.$spacing-md;
+    }
+
+    &__title {
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    &__subtitle {
+      font-size: 0.9rem;
+      margin-bottom: v.$spacing-sm;
+    }
+
+    &__cta {
+      font-size: 0.9rem;
+      padding: v.$spacing-xs v.$spacing-sm;
+    }
+
+    &__stats {
+      gap: v.$spacing-sm;
+    }
+  }
+
+  .stat-card {
+    padding: v.$spacing-sm;
+    min-width: unset;
+    width: 100%;
+
+    &__label {
+      font-size: 1rem;
+    }
+
+    &__value {
+      font-size: 1.4rem;
+    }
+
+    &__desc {
+      font-size: 0.8rem;
+    }
+  }
+
+  .update-card {
+    padding: v.$spacing-sm;
+    margin-top: v.$spacing-sm;
+
+    &__title {
+      font-size: 0.95rem;
+    }
+
+    &__time {
+      font-size: 0.75rem;
+    }
+
+    &__desc {
+      font-size: 0.9rem;
+    }
+
+    .icon {
+      font-size: 1rem;
+    }
+  }
+
+  .updates__title {
+    font-size: 0.9rem;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  .animated-clock {
+    top: v.$spacing-xs;
+    right: v.$spacing-xs;
+
+    .clock-time {
+      font-size: 1rem;
+    }
+
+    .clock-date {
+      font-size: 0.65rem;
+    }
+  }
 }

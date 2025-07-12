@@ -18,11 +18,26 @@ max-width: 280px;
   border: v.$border-style-cyan;
   gap: v.$spacing-sm;
   border-radius: v.$border-radius-lg 0 0 v.$border-radius-lg;
-  padding: v.$spacing-lg v.$spacing-md;
 
   &.collapsed {
     width: 64px;
+    min-width: 64px;
+    max-width: 64px;
     padding: v.$spacing-md;
+    .sidebar__menu-label{
+      display: none;
+    }
+    .lang-switcher{
+      flex-direction: column;
+    align-items: center;
+    }
+    .rune-rain-loader {
+
+      left: 64px; // ширина сайдбару
+      width: calc(100% - 64px);
+
+    }
+
   }
 
   &__logo {
@@ -53,7 +68,7 @@ max-width: 280px;
     color: v.$color-accent-cyan;
     font-size: 24px;
     cursor: pointer;
-    margin-bottom: v.$spacing-lg;
+    margin-bottom: v.$spacing-xs;
     transition: transform 0.3s ease;
 
     &:hover {
@@ -132,5 +147,87 @@ max-width: 280px;
         pointer-events: none;
       }
     }
+  }
+}
+@media (max-width:  v.$maxMobile) {
+  .dashboard__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+    min-height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0  v.$border-radius-lg  v.$border-radius-lg;
+    padding:  v.$spacing-sm  v.$spacing-md;
+    z-index: 1000;
+    font-size:  v.$font-size-sm;
+
+    &__logo {
+      font-size:  v.$font-size-lg;
+      margin: 0;
+      padding: 0;
+      border-bottom: none;
+    }
+
+    &__toggle-btn {
+      display: none;
+    }
+
+    &__nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &__menu {
+      flex-direction: row;
+      align-items: center;
+      gap:  v.$spacing-sm;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__menu-item {
+      font-size:  v.$font-size-sm;
+      padding: 0;
+      justify-content: center;
+
+      .dashboard__sidebar__menu-icon {
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .sidebar__menu-label {
+        display: none;
+      }
+    }
+
+    .lang-switcher {
+      flex-direction: row;
+      gap:  v.$spacing-sm;
+    }
+
+    &.collapsed {
+      .dashboard__sidebar__menu-label {
+        display: none;
+      }
+    }
+  }
+
+  .rune-rain-loader {
+    top: 48px; // або висота мобільного сайдбару
+    left: 0;
+    width: 100%;
+  }
+
+  .Layout__section {
+    padding-top: 48px;
   }
 }

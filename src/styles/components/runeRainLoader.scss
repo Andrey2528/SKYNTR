@@ -1,5 +1,6 @@
 @use '@/styles/partials/_variables.scss' as v;
 
+
 .rune-rain-loader {
   position: fixed;
   top: 0;
@@ -10,6 +11,22 @@
   z-index: 9999;
   overflow: hidden;
   pointer-events: none;
+  @media (max-width: v.$maxMobile) {
+    top: 50px; // висота верхнього сайдбару
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+  }
+
+
+  &.collapsed{
+    left: 102px;
+    width: calc(100% - 102px);
+    @media (max-width: v.$maxMobile) {
+      left: 0;
+      width: 100%;
+    }
+  }
 
   .rune {
     position: absolute;

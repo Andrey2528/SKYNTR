@@ -7,9 +7,8 @@ import { PAGE_HOME, PAGE_RUNE_EVERY_DAY } from '@/router/routes';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const NavbarAside = () => {
+const NavbarAside = ({ collapsed, setCollapsed }) => {
     const { t, i18n } = useTranslation();
-    const [collapsed, setCollapsed] = useState(false);
 
     const menu = [
         { name: 'main', labelKey: 'nav.main', icon: 'home', path: PAGE_HOME },

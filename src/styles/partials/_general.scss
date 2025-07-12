@@ -8,10 +8,24 @@ body {
     flex-direction: column;
     justify-content: center;
     overflow-x: hidden;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-base;
+    color: v.$color-text-primary;
+    background-color: v.$color-bg-dark;
+    line-height: 1.6;
+    @media (max-width: v.$maxMobile) {
+        overflow-x: hidden;
+        font-size: v.$font-size-sm;
+    }
 
     a {
-        text-decoration: none;
+    color: v.$color-accent-blue;
+    text-decoration: none;
+    transition: v.$transition-fast;
+    &:hover {
+        color: v.$color-accent-cyan;
     }
+}
 }
 
 .Layout {
@@ -30,13 +44,7 @@ body {
 
     }
 }
-body {
-    font-family: v.$font-family-base;
-    font-size: v.$font-size-base;
-    color: v.$color-text-primary;
-    background-color: v.$color-bg-dark;
-    line-height: 1.6;
-}
+
 h1,
 h2,
 h3,
@@ -45,14 +53,7 @@ h4 {
     font-weight: v.$font-weight-bold;
     letter-spacing: v.$letter-spacing-wide;
 }
-a {
-    color: v.$color-accent-blue;
-    text-decoration: none;
-    transition: v.$transition-fast;
-    &:hover {
-        color: v.$color-accent-cyan;
-    }
-}
+
 
 .row{
     display: flex;
@@ -64,6 +65,9 @@ a {
   gap: 10px;
   justify-content: center;
   margin-top: 1rem;
+  @media (max-width: 768px){
+    margin-top: 0;
+  }
 
   button {
     background: transparent;

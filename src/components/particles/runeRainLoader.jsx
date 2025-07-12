@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import runes from '@/api/runes/runes';
 import '@/styles/index.scss';
 
-const RuneRainLoader = () => {
+const RuneRainLoader = ({ collapsed }) => {
     const location = useLocation();
     const [show, setShow] = useState(true);
 
@@ -19,7 +19,7 @@ const RuneRainLoader = () => {
     if (!show) return null;
 
     return (
-        <div className="rune-rain-loader">
+        <div className={`rune-rain-loader ${collapsed ? 'collapsed' : ''}`}>
             {Array.from({ length: 30 }).map((_, i) => {
                 const rune = runes[Math.floor(Math.random() * runes.length)];
                 const left = Math.random() * 100;
