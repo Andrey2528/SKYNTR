@@ -30,7 +30,6 @@ const HomePage = () => {
 
     return (
         <div className="dashboard">
-            <RuneParticles />
             <main className="dashboard__main">
                 <section className="dashboard__hero">
                     <div className="row">
