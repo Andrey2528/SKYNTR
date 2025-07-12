@@ -11,7 +11,7 @@ const RuneRainLoader = () => {
         setShow(true);
         const timer = setTimeout(() => {
             setShow(false);
-        }, 1000); // тривалість анімації
+        }, 1500); // тривалість анімації
 
         return () => clearTimeout(timer);
     }, [location.pathname]);
