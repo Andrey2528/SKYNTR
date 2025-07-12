@@ -10,7 +10,6 @@ const RunesEveryDay = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-            <RuneParticles NUMBER_OF_RUNES={150} />
             <RuneOfTheDay />
         </motion.section>
     );

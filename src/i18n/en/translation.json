@@ -150,12 +150,13 @@
     "headerIntro": "In every project, a spark. In every interface, a trace of mind. Here lie the chronicles of a digital forge.",
     "viewProject": "View Project"  
     },
-    "about": {
-  "subtitle": "Код. Міф. Ідеологія.",
-  "mission": "Skyntr — це поєднання технологій і міфології. Ми творимо цифровий світ, де кожен елемент має зміст.",
-  "philosophy": "Наш підхід — як стародавні руни: простота, сила та багатозначність.",
-  "technology": "Використовуючи сучасні фреймворки, анімацію, нейромережі та дизайн, ми прагнемо створювати нові форми цифрової естетики."
-},
+"about": {
+  "subtitle": "Code. Myth. Ideology.",
+  "mission": "Skyntr — [“Skin” + “Inter”]<1/>The one who shapes the layer of interaction between human and machine, between structure and feeling.<1/>It's not just 'frontend' — it's a project merging technology and mythology.",
+  "philosophy": "<1/>Our approach is like ancient runes: simplicity, strength, and multiplicity of meaning.<1/>We create not buttons, but interactions.<1/>Not pages — but meaning.<1/>Not trends — but a structure that withstands time.",
+  "technology": "Using modern frameworks, animation, neural networks, and design, I aim to create new forms of digital aesthetics."
+}
+,
   "portfolioCard": {
         "title": {
             "title1": "Denis Portfolio",
