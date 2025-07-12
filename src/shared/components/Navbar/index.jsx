@@ -1,47 +1,55 @@
-import React, { useState } from 'react';
-import '@/styles/index.scss';
-import SvgController from '@/utils/svgColntoller';
+import React, { useState, useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
+
+import '@/styles/index.scss';
+import SvgController from '@/shared/components/svgController';
 import {
     PAGE_HOME,
     PAGE_RUNE_EVERY_DAY,
     PAGE_PORTFOLIO,
     PAGE_ABOUT,
 } from '@/router/routes';
-
-import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const NavbarAside = ({ collapsed, setCollapsed }) => {
-    const { t, i18n } = useTranslation();
+// Navigation menu configuration
+const MENU_ITEMS = [
+    { name: 'main', labelKey: 'nav.main', icon: 'home', path: PAGE_HOME },
+    {
+        name: 'chronicles',
+        labelKey: 'nav.chronicles',
+        icon: 'chronicles',
+        path: PAGE_PORTFOLIO,
+    },
+    {
+        name: 'about',
+        labelKey: 'nav.about',
+        icon: 'about',
+        path: PAGE_ABOUT,
+    },
+    {
+        name: 'rune',
+        labelKey: 'nav.rune',
+        icon: 'about',
+        path: PAGE_RUNE_EVERY_DAY,
+    },
+];
 
-    const menu = [
-        { name: 'main', labelKey: 'nav.main', icon: 'home', path: PAGE_HOME },
-        {
-            name: 'chronicles',
-            labelKey: 'nav.chronicles',
-            icon: 'chronicles',
-            path: PAGE_PORTFOLIO,
-        },
-        {
-            name: 'about',
-            labelKey: 'nav.about',
-            icon: 'about',
-            path: PAGE_ABOUT,
-        },
-        {
-            name: 'rune',
-            labelKey: 'nav.rune',
-            icon: 'about',
-            path: PAGE_RUNE_EVERY_DAY,
-        },
-    ];
+const NavbarAside = ({ collapsed, setCollapsed }) => {
+    const { t } = useTranslation();
+
+    // Memoize menu items to prevent unnecessary re-renders
+    const menuItems = useMemo(() => MENU_ITEMS, []);
+
+    const handleToggle = () => {
+        setCollapsed(!collapsed);
+    };
 
     return (
         <aside className={`dashboard__sidebar ${collapsed ? 'collapsed' : ''}`}>
             <NavLink
                 to={PAGE_HOME}
-                key={PAGE_HOME}
                 className="dashboard__sidebar__logo"
             >
                 {collapsed ? 'S' : 'SKYNTR'}
@@ -49,7 +57,7 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
 
             <button
                 className="dashboard__sidebar__toggle-btn"
-                onClick={() => setCollapsed(!collapsed)}
+                onClick={handleToggle}
                 aria-label={collapsed ? 'Expand menu' : 'Collapse menu'}
             >
                 <SvgController
@@ -60,7 +68,7 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
 
             <nav className="dashboard__sidebar__nav">
                 <ul className="dashboard__sidebar__menu">
-                    {menu.map((item) => (
+                    {menuItems.map((item) => (
                         <NavLink
                             to={item.path}
                             key={item.name}
@@ -83,6 +91,11 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
             </nav>
         </aside>
     );
+};
+
+NavbarAside.propTypes = {
+    collapsed: PropTypes.bool.isRequired,
+    setCollapsed: PropTypes.func.isRequired,
 };
 
 export default NavbarAside;

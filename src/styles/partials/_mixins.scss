@@ -1,3 +1,4 @@
+// Burger Button Animation
 @mixin animate-burger-button {
   border: none;
   background: transparent;
@@ -6,13 +7,14 @@
     background: transparent;
     .animate-burger {
       .top {
-       transform: translateY(-3px);
+        transform: translateY(-3px);
       }
       .bottom {
         transform: translateY(3px);
       }
     }
   }
+
   &:not(.collapsed) {
     .animate-burger {
       .top {
@@ -27,11 +29,13 @@
       }
     }
   }
+
   .animate-burger {
     display: inline-block;
     position: relative;
     width: 24px;
     height: 16px;
+
     span {
       position: absolute;
       width: 100%;
@@ -40,28 +44,30 @@
       left: 0;
       transition: transform .5s, opacity .6s;
     }
+
     .top {
       top: 0;
     }
+
     .middle {
       top: 50%;
       margin-top: -1px;
     }
+
     .bottom {
       bottom: 0;
     }
   }
 }
+
+// Card Width Variables
 $card-width-nxxl: calc(20% - 1.25rem * 4 / 5);
 $card-width-nxl: calc(25% - 1.25rem * 3 / 4);
 $card-width-nlg: calc(100% / 3 - 1.25rem * 2 / 3);
 $card-width-nnd: calc(50% - 0.625rem);
 $card-width-nsm: 100%;
 
-// =============================================================================
-// String Replace
-// =============================================================================
-
+// String Replace Function
 @function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
 
@@ -72,21 +78,18 @@ $card-width-nsm: 100%;
   @return $string;
 }
 
-// =============================================================================
-// Font Face
-// =============================================================================
-
+// Font Face Mixin
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
   $src: null;
 
   $extmods: (
-          eot: "?",
-          svg: "#" + str-replace($name, " ", "_")
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
   );
 
   $formats: (
-          otf: "opentype",
-          ttf: "truetype"
+    otf: "opentype",
+    ttf: "truetype"
   );
 
   @each $ext in $exts {
@@ -104,8 +107,7 @@ $card-width-nsm: 100%;
   }
 }
 
-
-
+// Triangle Mixin
 @mixin triangle($width: 20px, $height: 20px, $direction: 'down', $color: black) {
   width: 0;
   height: 0;
@@ -114,24 +116,21 @@ $card-width-nsm: 100%;
   @if $direction == right {
     border-top: $height/2 solid transparent;
     border-bottom: $height/2 solid transparent;
-    border-left: $width solid $color
+    border-left: $width solid $color;
   }
 
-  // Left
   @if $direction == left {
     border-top: $height/2 solid transparent;
     border-bottom: $height/2 solid transparent;
     border-right: $width solid $color;
   }
 
-  // Up
   @if $direction == up {
     border-left: $width/2 solid transparent;
     border-right: $width/2 solid transparent;
     border-bottom: $height solid $color;
   }
 
-  // Down
   @if $direction == down {
     border-left: $width/2 solid transparent;
     border-right: $width/2 solid transparent;
@@ -139,6 +138,7 @@ $card-width-nsm: 100%;
   }
 }
 
+// Clearfix Mixin
 @mixin clearfix {
   &:after {
     content: "";

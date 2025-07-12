@@ -1,18 +1,7 @@
 @use 'partials/reset.scss';
-@use 'partials/_fonts.scss';
-@use 'partials/_header.scss';
-@use 'partials/_footer.scss';
-@use 'partials/_buttons.scss';
-@use 'partials/_variables.scss';
-@use 'partials/_text.scss';
-@use 'partials/_general.scss';
+@use 'partials/fonts.scss';
+@use 'partials/header.scss';
+@use 'partials/variables.scss';
+@use 'partials/general.scss';
 
-@use 'components/navbar.scss';
-@use 'components/homePage.scss';
-@use 'components/sidebar.scss';
-@use 'components/RunesIntro.scss';
-@use 'components/RuneOfTheDay.scss';
-@use 'components/AtmosphericUpdate.scss';
-@use 'components/chronicles.scss';
-@use 'components/runeRainLoader.scss';
-@use 'components/about.scss';
+// Стилі компонентів тепер імпортуються локально у відповідних файлах features/pages/shared

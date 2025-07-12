@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
-const languages = [
+// Available languages configuration
+const LANGUAGES = [
     { code: 'uk', label: 'УК' },
     { code: 'en', label: 'EN' },
 ];
@@ -9,10 +11,14 @@ const languages = [
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
 
-    const changeLang = (lng) => {
+    // Memoize languages to prevent unnecessary re-renders
+    const languages = useMemo(() => LANGUAGES, []);
+
+    // Memoize language change handler
+    const changeLang = useCallback((lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem('lng', lng);
-    };
+    }, [i18n]);
 
     return (
         <div className="lang-switcher">
@@ -29,5 +35,7 @@ const LanguageSwitcher = () => {
         </div>
     );
 };
+
+LanguageSwitcher.propTypes = {};
 
 export default LanguageSwitcher;

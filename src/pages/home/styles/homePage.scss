@@ -1,0 +1,429 @@
+@use '@/styles/partials/variables.scss' as v;
+
+// --- Sidebar styles from sidebar.scss ---
+.dashboard__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: v.$gradient-center-glow-horizontal;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dashboard__updates {
+  margin-top: v.$spacing-lg;
+}
+
+// --- Main dashboard styles ---
+.dashboard {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px #00f0ff99;
+
+  background: v.$color-bg-dark;
+  color: v.$color-text-primary;
+  font-family: v.$font-family-base;
+  box-sizing: border-box;
+  border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
+
+
+  &__main {
+    flex: 1;
+    min-height: 100vh;
+
+    background: transparent;
+    border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
+    padding: v.$spacing-xl v.$spacing-xl v.$spacing-xl v.$spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-xl;
+    border: 1px solid v.$color-accent-cyan;
+    border-left: none;
+  }
+
+  &__hero {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    #tsparticles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    > *:not(#tsparticles) {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-accent-cyan;
+    letter-spacing: v.$letter-spacing-wide;
+    margin-bottom: v.$spacing-md;
+    overflow-wrap: break-word;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    color: v.$color-text-muted;
+    margin-bottom: v.$spacing-lg;
+    max-width: 600px;
+    overflow-wrap: break-word;
+  }
+
+  &__cta {
+    background: none;
+    border: 1px solid v.$color-accent-cyan;
+    color: v.$color-accent-cyan;
+    font-size: 1.1rem;
+    padding: v.$spacing-sm v.$spacing-lg;
+    border-radius: v.$border-radius-md;
+    cursor: pointer;
+    transition: background v.$transition-fast, color v.$transition-fast;
+
+    &:hover {
+      background: v.$color-accent-cyan;
+      color: v.$color-bg-dark;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    gap: v.$spacing-lg;
+    margin-bottom: v.$spacing-lg;
+  }
+}
+
+.stat-card {
+  flex: 1;
+  background: transparent;
+  border: 1px solid v.$color-border-light;
+  border-radius: v.$border-radius-md;
+  padding: v.$spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+
+  &:hover {
+    box-shadow: 0 0 12px #00f0ff99;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: v.$color-accent-cyan;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    overflow-wrap: break-word;
+  }
+
+  &__value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: v.$color-accent-blue;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    transition: all 0.3s ease;
+    overflow-wrap: break-word;
+  }
+
+  &__desc {
+    color: v.$color-text-muted;
+    font-size: 1rem;
+    margin-top: v.$spacing-sm;
+    overflow-wrap: break-word;
+  }
+}
+
+
+.updates__title {
+  color: v.$color-text-muted;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: v.$spacing-md;
+}
+
+.update-card {
+  background: v.$color-gray-soft;
+  border-radius: v.$border-radius-md;
+  padding: v.$spacing-lg;
+  margin-bottom: v.$spacing-sm;
+  box-shadow: 0 0 0 1px v.$color-border-light;
+  margin-top: v.$spacing-md;
+
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  &__title {
+    color: v.$color-accent-cyan;
+    font-weight: v.$font-weight-bold;
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+
+  }
+
+  &__time {
+    color: v.$color-text-muted;
+    font-size: 0.95rem;
+    overflow-wrap: break-word;
+  }
+
+  &__desc {
+    color: v.$color-text-primary;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+  }
+
+  .icon {
+    margin-right: 0.6rem;
+    font-size: 1.5rem;
+  }
+}
+
+.animated-clock {
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  color: #00f0ff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+  text-align: right;
+  z-index: 100;
+
+  .clock-time {
+    display: flex;
+    gap: 2px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    overflow-wrap: break-word;
+
+    span {
+      min-width: 1ch;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  .clock-date {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    opacity: 0.8;
+    overflow-wrap: break-word;
+  }
+}
+
+/* --- Media queries --- */
+
+@media (max-width: v.$maxMobile) {
+  .dashboard {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-radius: 0;
+    box-shadow: none;
+
+    &__main {
+      border-radius: 0;
+      border: none;
+      padding: v.$spacing-lg v.$spacing-md;
+      gap: v.$spacing-lg;
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+      text-align: center;
+      max-width: 100%;
+      margin: 0 auto v.$spacing-md;
+    }
+
+    &__cta {
+      font-size: 1rem;
+      padding: v.$spacing-xs v.$spacing-md;
+      margin: 0 auto;
+      display: block;
+    }
+
+    &__stats {
+      flex-direction: column;
+      gap: v.$spacing-md;
+    }
+  }
+
+  .stat-card {
+    padding: v.$spacing-md;
+    align-items: center;
+
+    &__label {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    &__value {
+      font-size: 1.6rem;
+    }
+
+    &__desc {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+
+  .update-card {
+    padding: v.$spacing-md;
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__time {
+      font-size: 0.8rem;
+    }
+
+    &__desc {
+      font-size: 0.95rem;
+    }
+
+    .icon {
+      font-size: 1.2rem;
+    }
+  }
+
+  .updates__title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .animated-clock {
+    top: v.$spacing-sm;
+    right: v.$spacing-sm;
+
+    .clock-time {
+      font-size: 1.2rem;
+    }
+
+    .clock-date {
+      font-size: 0.7rem;
+    }
+  }
+
+  .dashboard__background {
+    background-size: cover;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+/* Оптимізація для екранів менше 720px */
+@media (max-width: 719px) {
+  .dashboard {
+    &__main {
+      padding: v.$spacing-md v.$spacing-xs;
+      gap: v.$spacing-md;
+    }
+
+    &__title {
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    &__subtitle {
+      font-size: 0.9rem;
+      margin-bottom: v.$spacing-sm;
+    }
+
+    &__cta {
+      font-size: 0.9rem;
+      padding: v.$spacing-xs v.$spacing-sm;
+    }
+
+    &__stats {
+      gap: v.$spacing-sm;
+    }
+  }
+
+  .stat-card {
+    padding: v.$spacing-sm;
+    min-width: unset;
+    width: 100%;
+
+    &__label {
+      font-size: 1rem;
+    }
+
+    &__value {
+      font-size: 1.4rem;
+    }
+
+    &__desc {
+      font-size: 0.8rem;
+    }
+  }
+
+  .update-card {
+    padding: v.$spacing-sm;
+    margin-top: v.$spacing-sm;
+
+    &__title {
+      font-size: 0.95rem;
+    }
+
+    &__time {
+      font-size: 0.75rem;
+    }
+
+    &__desc {
+      font-size: 0.9rem;
+    }
+
+    .icon {
+      font-size: 1rem;
+    }
+  }
+
+  .updates__title {
+    font-size: 0.9rem;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  .animated-clock {
+    top: v.$spacing-xs;
+    right: v.$spacing-xs;
+
+    .clock-time {
+      font-size: 1rem;
+    }
+
+    .clock-date {
+      font-size: 0.65rem;
+    }
+  }
+}

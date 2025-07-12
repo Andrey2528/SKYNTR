@@ -1,20 +1,24 @@
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+
 import '@/styles/index.scss';
 import { NavbarAside } from '@/shared/components';
-import RunesIntro from '@/components/particles/runesIntro';
-
-import { useState } from 'react';
-import RuneRainLoader from '@/components/particles/runeRainLoader';
+import RunesIntro from '@/features/particles/components/runesIntro';
+import RuneRainLoader from '@/features/particles/components/runeRainLoader';
 
 const Layout = () => {
     const [showIntro, setShowIntro] = useState(true);
     const [collapsed, setCollapsed] = useState(false);
 
+    const handleIntroComplete = () => {
+        setShowIntro(false);
+    };
+
     return (
         <>
             <div className="dashboard__background" />
             {showIntro ? (
-                <RunesIntro onComplete={() => setShowIntro(false)} />
+                <RunesIntro onComplete={handleIntroComplete} />
             ) : (
                 <main className="Layout">
                     <section className="Layout__section">

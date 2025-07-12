@@ -1,67 +1,63 @@
+// Breakpoints
 $bigDesc: '2560px';
 $maxDesc: '1440px';
 $maxTablet: '1024px';
 $mobile_menu_breakpoint: '900px';
 $maxMobile: '768px';
 
+// Container
 $container_max_size: 1320px;
 
+// Colors
+$color-bg-dark: #0E0F12;
+$color-text-primary: #E9EDF2;
+$color-text-muted: #A4B0C0;
+$color-accent-cyan: #00F0FF;
+$color-accent-blue: #A4D0F4;
+$color-gray-soft: #3A3F4B;
+$color-border-light: rgba(233, 237, 242, 0.1);
+$color-hover: rgba(0, 240, 255, 0.15);
 
-
-/*--fonts--*/
-// 🔷 Кольори (палітра)
-$color-bg-dark:         #0E0F12;
-$color-text-primary:    #E9EDF2;
-$color-text-muted:      #A4B0C0;
-$color-accent-cyan:     #00F0FF;
-$color-accent-blue:     #A4D0F4;
-$color-gray-soft:       #3A3F4B;
-$color-border-light:    rgba(233, 237, 242, 0.1);
-$color-hover:           rgba(0, 240, 255, 0.15);
-
-// Градієнт
-$gradient-accent:       linear-gradient(90deg, #00F0FF 0%, #A4D0F4 100%);
+// Gradients
+$gradient-accent: linear-gradient(90deg, #00F0FF 0%, #A4D0F4 100%);
 $gradient-center-glow-horizontal: linear-gradient(180deg, #0E0F12 0%, #A4D0F4 50%, #0E0F12 100%);
 
-// Відступи, сітка
-$spacing-xs:  4px;
-$spacing-sm:  8px;
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
 $spacing-md: 16px;
 $spacing-lg: 32px;
 $spacing-xl: 64px;
 
-// Бордери та кути
+// Borders & Radius
 $border-radius-sm: 4px;
 $border-radius-md: 8px;
 $border-radius-lg: 12px;
-$border-color:      $color-border-light;
-$border-style-gray:      1px solid $border-color;
-$border-style-cyan:      1px solid $color-accent-cyan;
+$border-color: $color-border-light;
+$border-style-gray: 1px solid $border-color;
+$border-style-cyan: 1px solid $color-accent-cyan;
 
-// Шрифти
-$font-family-base:   'Orbitron', sans-serif;
-$font-size-base:     16px;
-$font-size-sm:       14px;
-$font-size-lg:       20px;
-$font-size-xl:       36px;
-$font-size-xxl:      48px;
+// Typography
+$font-family-base: 'Orbitron', sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 20px;
+$font-size-xl: 36px;
+$font-size-xxl: 48px;
 $font-weight-normal: 400;
-$font-weight-bold:   700;
+$font-weight-bold: 700;
 $text-transform-headings: uppercase;
 $letter-spacing-wide: 0.08em;
 
-// Тіні
+// Shadows
 $shadow-glow-cyan: 0 0 8px rgba(0, 240, 255, 0.3);
 $shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-// Анімації
+// Transitions
 $transition-fast: 0.2s ease;
 $transition-smooth: 0.4s ease-in-out;
 
-
-
-
-
+// Media Queries Template
 /*
 @media (max-width: $bigDesc) {
 

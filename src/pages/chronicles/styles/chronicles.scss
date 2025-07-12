@@ -1,0 +1,160 @@
+@use '@/styles/partials/variables.scss' as v;
+
+.chronicles {
+  padding: 4rem 2rem;
+  background-color: v.$color-bg-dark;
+  color: v.$color-text-primary;
+  width: 100%;
+  height: fit-content;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: v.$color-accent-cyan;
+    }
+
+    .chronicles__intro {
+      font-size: 1.2rem;
+      color: v.$color-text-muted;
+      max-width: 640px;
+      margin: 1rem auto 0;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+}
+
+.chronicle-entry {
+  position: relative;
+  background-color: v.$color-gray-soft;
+  padding: 2rem;
+  border: v.$border-style-gray;
+  border-radius: v.$border-radius-md;
+  box-shadow: v.$shadow-soft;
+  transition: v.$transition-smooth;
+
+  &:hover {
+    border-color: v.$color-accent-cyan;
+    box-shadow: 0 0 10px rgba(v.$color-accent-cyan, 0.2);
+  }
+
+  &__header {
+    position: relative;
+    margin-bottom: 1rem;
+
+    .rune-symbol {
+      position: absolute;
+      top: -1.2rem;
+      right: -1.2rem;
+      z-index: 2;
+      background-color: v.$color-bg-dark;
+      padding: v.$spacing-xs;
+      border-radius: v.$border-radius-sm;
+      text-align: center;
+      border: 1px solid v.$color-gray-soft;
+      box-shadow: 0 0 5px rgba(v.$color-gray-soft, 0.1);
+      display: flex;
+      align-items: center;
+      gap: v.$spacing-xs;
+      transition: v.$transition-smooth;
+
+      &__char {
+        font-size: 1.5rem;
+        color: white; // базовий колір
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      &__name {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        color: v.$color-text-muted;
+        letter-spacing: 0.05em;
+      }
+
+      // при наведенні на картку — світиться символ
+      .chronicle-entry:hover &__char {
+        color: v.$color-accent-cyan;
+        text-shadow: 0 0 6px rgba(v.$color-accent-cyan, 0.6);
+      }
+
+      // якщо хочеш щоб світилась вся рамка:
+      .chronicle-entry:hover & {
+        border-color: v.$color-accent-cyan;
+        box-shadow: 0 0 8px rgba(v.$color-accent-cyan, 0.3);
+      }
+    }
+
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: v.$border-radius-sm;
+    margin-bottom: 1rem;
+        filter: grayscale(90%);
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: v.$color-accent-cyan;
+    margin-bottom: 0.25rem;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: v.$color-text-muted;
+    margin-bottom: 0.5rem;
+  }
+
+  &__date {
+    font-size: 0.9rem;
+    color: v.$color-accent-blue;
+    margin-bottom: 1rem;
+  }
+
+  &__tags {
+    margin-bottom: 1rem;
+
+    .tag {
+      display: inline-block;
+      background-color: v.$color-accent-cyan;
+      color: v.$color-bg-dark;
+      padding: 0.3rem 0.6rem;
+      border-radius: v.$border-radius-sm;
+      font-size: 0.75rem;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  &__description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: v.$color-text-primary;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: v.$color-accent-blue;
+    border-bottom: 1px solid transparent;
+    transition: v.$transition-fast;
+
+    &:hover {
+      border-color: v.$color-accent-blue;
+    }
+  }
+}

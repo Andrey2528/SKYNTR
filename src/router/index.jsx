@@ -1,17 +1,19 @@
+import React from 'react';
 import { createHashRouter } from 'react-router-dom';
 
-import { HomePage, RunesEveryDay, ChroniclesPage } from '@/pages';
-
 import Layout from '@/layout/layout';
-
+import HomePage from '@/pages/home/HomePage';
+import RunesEveryDay from '@/pages/runes/runesEveryDay';
+import ChroniclesPage from '@/pages/chronicles/chronicles';
+import AboutPage from '@/pages/about/AboutPage';
 import {
     PAGE_HOME,
     PAGE_RUNE_EVERY_DAY,
     PAGE_PORTFOLIO,
     PAGE_ABOUT,
 } from './routes';
-import AboutPage from '@/pages/AboutPage';
 
+// Routes configuration
 const routes = [
     {
         path: '/',
