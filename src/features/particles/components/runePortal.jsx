@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../styles/runePortal.scss';
 import runes from '@/features/runes/api/runes';
 
-const RunePortal = ({ size = 300, speed = 20 }) => {
+const RunePortal = ({ size = 300, speed = 20, collapsed = false }) => {
     const radius = size / 2 - 20;
     const center = size / 2;
 
@@ -24,7 +24,7 @@ const RunePortal = ({ size = 300, speed = 20 }) => {
                     textAnchor="middle"
                     dominantBaseline="middle"
                     fill="#00f0ff"
-                    fontSize="20"
+                    fontSize={collapsed ? "12" : "20"}
                     fontFamily="serif"
                     transform={`rotate(${(angle * 180) / Math.PI + 90}, ${x}, ${y})`}
                 >
@@ -32,7 +32,7 @@ const RunePortal = ({ size = 300, speed = 20 }) => {
                 </text>
             );
         });
-    }, [center, radius]);
+    }, [center, radius, collapsed]);
 
     return (
         <div
@@ -58,7 +58,7 @@ const RunePortal = ({ size = 300, speed = 20 }) => {
                     cy={center}
                     r={radius}
                     stroke="#00f0ff66"
-                    strokeWidth="2"
+                    strokeWidth={collapsed ? "1" : "2"}
                     fill="none"
                 />
             </motion.svg>
@@ -69,6 +69,7 @@ const RunePortal = ({ size = 300, speed = 20 }) => {
 RunePortal.propTypes = {
     size: PropTypes.number,
     speed: PropTypes.number,
+    collapsed: PropTypes.bool,
 };
 
 export default RunePortal;

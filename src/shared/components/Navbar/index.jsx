@@ -13,8 +13,6 @@ import {
 } from '@/router/routes';
 import LanguageSwitcher from './LanguageSwitcher';
 import RunePortal from '@/features/particles/components/runePortal';
-const PORTAL_SIZE = 200;
-const PORTAL_SPEED = 25;
 
 // Navigation menu configuration
 const MENU_ITEMS = [
@@ -45,6 +43,10 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
     // Memoize menu items to prevent unnecessary re-renders
     const menuItems = useMemo(() => MENU_ITEMS, []);
 
+    // Calculate portal size based on collapsed state
+    const portalSize = collapsed ? 90 : 200;
+    const portalSpeed = 25;
+
     const handleToggle = () => {
         setCollapsed(!collapsed);
     };
@@ -55,7 +57,9 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
                 to={PAGE_HOME}
                 className="dashboard__sidebar__logo"
             >
-                {collapsed ? 'S' : 'SKYNTR'}
+                <div className="rune-portal-wrapper">
+                    <RunePortal size={portalSize} speed={portalSpeed} collapsed={collapsed} />
+                </div>
             </NavLink>
 
             <button
@@ -89,9 +93,11 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
                         </NavLink>
                     ))}
 
-                        <LanguageSwitcher />
-                        <RunePortal size={PORTAL_SIZE} speed={PORTAL_SPEED} />
+                    <LanguageSwitcher />
                 </ul>
+
+                {/* RunePortal по центру панелі */}
+                
             </nav>
         </aside>
     );

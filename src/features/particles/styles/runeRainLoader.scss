@@ -12,10 +12,10 @@
   pointer-events: none;
 
   @media (max-width: v.$maxMobile) {
-    top: 50px;
+    top: 62px;
     left: 0;
     width: 100%;
-    height: calc(100% - 50px);
+    height: calc(100% - 62px);
   }
 
   &.collapsed {

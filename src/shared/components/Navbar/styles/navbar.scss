@@ -4,8 +4,8 @@
 .dashboard__sidebar {
   background-color: v.$color-bg-dark;
   width: 280px;
-min-width: 280px;
-max-width: 280px;
+  min-width: 280px;
+  max-width: 280px;
   min-height: 100vh;
   box-shadow: v.$shadow-soft;
   font-family: v.$font-family-base;
@@ -17,13 +17,30 @@ max-width: 280px;
   border: v.$border-style-cyan;
   gap: v.$spacing-sm;
   border-radius: v.$border-radius-lg 0 0 v.$border-radius-lg;
-  padding: v.$spacing-lg v.$spacing-md;
+
+  @media (max-width: 720px) {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    border-radius: 0;
+    margin-bottom: 0;
+    flex-direction: row;
+  }
 
   &.collapsed {
     width: 64px;
     min-width: 64px;
     max-width: 64px;
     padding: v.$spacing-md;
+
+    @media (max-width: 720px) {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+    }
   }
 
   &__logo {
@@ -56,6 +73,9 @@ max-width: 280px;
     cursor: pointer;
     margin-bottom: v.$spacing-lg;
     transition: transform 0.3s ease;
+    @media (max-width: 720px) {
+      display: none;
+    }
 
     &:hover {
       color: color.adjust(v.$color-accent-cyan, $lightness: 20%);
@@ -64,6 +84,13 @@ max-width: 280px;
 
   &__nav {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 720px) {
+      justify-content: center;
+
+    }
   }
 
   &__menu {
@@ -73,6 +100,16 @@ max-width: 280px;
     display: flex;
     flex-direction: column;
     gap: v.$spacing-lg;
+    flex-grow: 1;
+
+      @media (max-width: 720px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 v.$spacing-sm;
+    gap: v.$spacing-sm;
+    height: 48px;
+  }
   }
 
   &__menu-item {
@@ -87,6 +124,15 @@ max-width: 280px;
     transition: v.$transition-fast;
     text-decoration: none;
     padding: 0px 0px;
+
+    @media (max-width: 720px) {
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      padding: v.$spacing-xs;
+      min-width: 60px;
+      height: 48px;
+    }
 
     &:hover,
     &.active {
@@ -115,6 +161,9 @@ max-width: 280px;
     .dashboard__sidebar__menu-label {
       transition: opacity 0.3s ease, width 0.3s ease;
       white-space: nowrap;
+      @media (max-width: 720px) {
+        display: none;
+      }
     }
   }
 
@@ -126,13 +175,27 @@ max-width: 280px;
         margin-right: 0;
       }
 
+      .dashboard__sidebar__toggle-btn{
+        margin-bottom: v.$spacing-sm;
+      }
+
       .sidebar__menu-label {
         opacity: 0;
         width: 0;
         overflow: hidden;
         pointer-events: none;
         display: none;
+        @media (max-width: 720px) {
+          display: none;
+        }
       }
+
+
+    }
+
+    // Стилі для RunePortal в згорнутому стані
+    .rune-portal-container {
+      margin: 0 auto;
     }
   }
 
@@ -143,6 +206,12 @@ max-width: 280px;
     justify-content: flex-start;
     transition: all 0.3s ease;
     width: 100%;
+    margin-bottom: v.$spacing-lg;
+
+    @media (max-width: 720px) {
+      margin-bottom: 0;
+      width: auto;
+    }
 
     button {
       background: none;
@@ -170,6 +239,7 @@ max-width: 280px;
       align-items: center;
       gap: v.$spacing-md;
       width: auto;
+      margin-bottom: v.$spacing-md;
 
       button {
         padding: v.$spacing-xs;
@@ -181,6 +251,26 @@ max-width: 280px;
         align-items: center;
         justify-content: center;
       }
+
+      @media (max-width: 720px) {
+        flex-direction: row;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Контейнер для RunePortal по центру
+  .rune-portal-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin: v.$spacing-lg 0;
+
+    @media (max-width: 720px) {
+      flex-grow: 0;
+      margin: 0;
+      height: 48px;
     }
   }
 }

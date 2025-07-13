@@ -171,12 +171,17 @@ font-size: v.$font-size-xxl;
     flex-direction: column;
     gap: v.$spacing-lg;
     padding-left: 1rem;
+    border-top: 0;
+    border-left: 2px solid v.$color-accent-cyan;
   }
 
   .timeline-item {
     max-width: none;
     width: 100%;
     margin-left: 1rem;
+    h3{
+      margin-left: 0.8rem;
+    }
 
     &::before {
       left: -1.5rem;
