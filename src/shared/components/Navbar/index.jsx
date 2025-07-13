@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import '@/styles/index.scss';
+import './styles/navbar.scss';
 import SvgController from '@/shared/components/svgController';
 import {
     PAGE_HOME,
@@ -12,6 +12,9 @@ import {
     PAGE_ABOUT,
 } from '@/router/routes';
 import LanguageSwitcher from './LanguageSwitcher';
+import RunePortal from '@/features/particles/components/runePortal';
+const PORTAL_SIZE = 200;
+const PORTAL_SPEED = 25;
 
 // Navigation menu configuration
 const MENU_ITEMS = [
@@ -86,7 +89,8 @@ const NavbarAside = ({ collapsed, setCollapsed }) => {
                         </NavLink>
                     ))}
 
-                    <LanguageSwitcher />
+                        <LanguageSwitcher />
+                        <RunePortal size={PORTAL_SIZE} speed={PORTAL_SPEED} />
                 </ul>
             </nav>
         </aside>

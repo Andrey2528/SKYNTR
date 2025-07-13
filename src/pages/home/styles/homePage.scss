@@ -37,6 +37,37 @@
   font-family: v.$font-family-base;
   box-sizing: border-box;
   border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '\16cf \16d2 \16d6 \16d7 \16da \16de \16df';
+
+    position: absolute;
+    font-size: 10rem;
+    top: 45%;
+    left: 0%;
+    opacity: 0.05;
+    color: v.$color-accent-cyan;
+    white-space: nowrap;
+    transform: rotate(-30deg);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '\16a0 \16a2 \16a6 \16a8 \16b1 \16b2 \16c9';
+
+    position: absolute;
+    font-size: 10rem;
+    top: 10%;
+    right: 0%;
+    opacity: 0.04;
+    color: v.$color-accent-blue;
+    white-space: nowrap;
+    transform: rotate(25deg);
+    pointer-events: none;
+  }
+
 
 
   &__main {
@@ -99,6 +130,9 @@
     border-radius: v.$border-radius-md;
     cursor: pointer;
     transition: background v.$transition-fast, color v.$transition-fast;
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-sm;
 
     &:hover {
       background: v.$color-accent-cyan;

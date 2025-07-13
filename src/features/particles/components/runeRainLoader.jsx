@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import runes from '@/features/runes/api/runes';
-import '@/styles/index.scss';
+import '../styles/runeRainLoader.scss';
 
 // Configuration constants
 const ANIMATION_DURATION = 1500;

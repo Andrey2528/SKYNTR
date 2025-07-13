@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import '@/styles/index.scss';
+import './styles/chronicles.scss';
 import portfolioCard from '@/features/portfolio/api/portfolioCard';
 import runes from '@/features/runes/api/runes';
 
@@ -13,6 +13,24 @@ const ChronicleEntry = ({ entry, rune }) => {
     const tags = useMemo(() => {
         return entry.tag.split(', ');
     }, [entry.tag]);
+
+    // Функція для обробки перекладів часу роботи
+    const formatTimeWork = useMemo(() => {
+        const timeString = entry.timeToEndWork;
+        if (!timeString) return '';
+
+        // Розбиваємо рядок на частини
+        const parts = timeString.split(' ');
+        if (parts.length < 2) return timeString;
+
+        const number = parseInt(parts[0]);
+        const translationKey = parts.slice(1).join(' ');
+
+        // Перекладаємо ключ з правильним числом для множини
+        const translatedKey = t(translationKey, { count: number });
+        
+        return `${number} ${translatedKey}`;
+    }, [entry.timeToEndWork, t]);
 
     return (
         <div className="chronicle-entry">
@@ -40,16 +58,26 @@ const ChronicleEntry = ({ entry, rune }) => {
             <p className="chronicle-entry__description">
                 {t(entry.description)}
             </p>
-            {entry.url && !entry.url.includes('urlNotAviable') && (
-                <a
-                    className="chronicle-entry__link"
-                    href={entry.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {t('chroniclesPage.viewProject')}
-                </a>
-            )}
+            <div className="chronicle-entry__footer">
+                {entry.url && !entry.url.includes('urlNotAviable') ? (
+                    <a
+                        className="chronicle-entry__link"
+                        href={entry.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {t('chroniclesPage.viewProject')}
+                    </a>
+                ) : (
+                    <span className="chronicle-entry__unavailable">
+                        {t('portfolioCard.urlNotAviable')}
+                    </span>
+                )}
+                <div className="chronicle-entry__time">
+                    <span className="time-label">{t('portfolioCard.timeWork.title')}:</span>
+                    <span className="time-value">{formatTimeWork}</span>
+                </div>
+            </div>
         </div>
     );
 };

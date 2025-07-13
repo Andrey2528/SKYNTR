@@ -1,0 +1,186 @@
+@use "sass:color";
+@use '@/styles/partials/_variables.scss' as v;
+
+.dashboard__sidebar {
+  background-color: v.$color-bg-dark;
+  width: 280px;
+min-width: 280px;
+max-width: 280px;
+  min-height: 100vh;
+  box-shadow: v.$shadow-soft;
+  font-family: v.$font-family-base;
+  color: v.$color-text-primary;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  border: v.$border-style-cyan;
+  gap: v.$spacing-sm;
+  border-radius: v.$border-radius-lg 0 0 v.$border-radius-lg;
+  padding: v.$spacing-lg v.$spacing-md;
+
+  &.collapsed {
+    width: 64px;
+    min-width: 64px;
+    max-width: 64px;
+    padding: v.$spacing-md;
+  }
+
+  &__logo {
+    font-size: v.$font-size-xl;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-accent-cyan;
+  letter-spacing: v.$letter-spacing-wide;
+  margin-bottom: v.$spacing-lg;
+  border-bottom: 1px solid v.$color-accent-cyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: v.$spacing-md 0;
+  text-shadow: v.$shadow-glow-cyan;
+  transition: all 0.3s ease;
+
+  .dashboard__sidebar.collapsed & {
+    font-size: v.$font-size-xxl;
+    border-bottom: none;
+    padding: 0;
+    margin-bottom: v.$spacing-sm;
+  }
+  }
+
+  &__toggle-btn {
+    background: none;
+    border: none;
+    color: v.$color-accent-cyan;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: v.$spacing-lg;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      color: color.adjust(v.$color-accent-cyan, $lightness: 20%);
+    }
+  }
+
+  &__nav {
+    flex-grow: 1;
+  }
+
+  &__menu {
+    list-style: none;
+    margin: 0;
+    padding: v.$spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+  }
+
+  &__menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: v.$spacing-xs;
+    color: v.$color-text-primary;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: v.$border-radius-sm;
+    transition: v.$transition-fast;
+    text-decoration: none;
+    padding: 0px 0px;
+
+    &:hover,
+    &.active {
+      color: v.$color-accent-cyan;
+      box-shadow: v.$shadow-glow-cyan;
+      font-weight: v.$font-weight-bold;
+      .dashboard__sidebar__menu-icon {
+        filter: drop-shadow(0 0 5px v.$color-accent-cyan);
+      }
+    }
+
+    .dashboard__sidebar__menu-icon {
+      display: flex;
+      align-items: center;
+      transition: margin 0.3s ease;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+        stroke: currentColor;
+        transition: fill v.$transition-smooth, stroke v.$transition-smooth, filter v.$transition-smooth;
+      }
+    }
+
+    .dashboard__sidebar__menu-label {
+      transition: opacity 0.3s ease, width 0.3s ease;
+      white-space: nowrap;
+    }
+  }
+
+  &.collapsed {
+    .dashboard__sidebar__menu-item {
+      justify-content: center;
+
+      .dashboard__sidebar__menu-icon {
+        margin-right: 0;
+      }
+
+      .sidebar__menu-label {
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        pointer-events: none;
+        display: none;
+      }
+    }
+  }
+
+  .lang-switcher {
+    display: flex;
+    gap: v.$spacing-xs;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    width: 100%;
+
+    button {
+      background: none;
+      border: 1px solid v.$color-accent-cyan;
+      color: v.$color-text-primary;
+      padding: v.$spacing-xs v.$spacing-sm;
+      border-radius: v.$border-radius-sm;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      flex: 1;
+
+      &:hover,
+      &.active {
+        background: v.$color-accent-cyan;
+        color: v.$color-bg-dark;
+        box-shadow: v.$shadow-glow-cyan;
+      }
+    }
+  }
+
+  &.collapsed {
+    .lang-switcher {
+      flex-direction: column;
+      align-items: center;
+      gap: v.$spacing-md;
+      width: auto;
+
+      button {
+        padding: v.$spacing-xs;
+        min-width: 32px;
+        height: 32px;
+        text-align: center;
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

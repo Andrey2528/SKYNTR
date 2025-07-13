@@ -12,6 +12,38 @@
   border-radius: 0 v.$border-radius-md v.$border-radius-md 0;
   border: 1px solid v.$color-accent-cyan;
   border-left: none;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '\16cf \16d2 \16d6 \16d7 \16da \16de \16df';
+    position: absolute;
+    font-size: 12rem;
+    top: 10%;
+    left: -8%;
+    opacity: 0.08;
+    color: v.$color-accent-cyan;
+    white-space: nowrap;
+    transform: rotate(-25deg);
+    pointer-events: none;
+    z-index: 0;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+
+  &::after {
+    content: '\16a0 \16a2 \16a6 \16a8 \16b1 \16b2 \16c9';
+    position: absolute;
+    font-size: 12rem;
+    bottom: 15%;
+    right: -10%;
+    opacity: 0.1;
+    color: v.$color-accent-blue;
+    white-space: nowrap;
+    transform: rotate(30deg);
+    pointer-events: none;
+    z-index: 0;
+    text-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+  }
 
   .rune-of-the-day{
     border-radius: v.$border-radius-md;
@@ -19,6 +51,8 @@
     text-align: center;
     color: #00f0ff;
     box-shadow: 0 0 12px #00f0ff99;
+    position: relative;
+    // Видаляємо декоративні елементи для кращої читабельності
   }
 
   .rune-symbol {
@@ -52,6 +86,22 @@
 
   .rune-container{
         margin-top: v.$spacing-xl;
+        position: relative;
+
+        &::before {
+          content: '\16b3 \16b7 \16bb \16bf \16c3 \16c7';
+          position: absolute;
+          font-size: 9rem;
+          top: -15%;
+          left: 50%;
+          transform: translateX(-50%) rotate(15deg);
+          opacity: 0.06;
+          color: v.$color-accent-cyan;
+          white-space: nowrap;
+          pointer-events: none;
+          z-index: 0;
+          text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
   }
   .rune-list{
     display: flex;
@@ -60,7 +110,23 @@
     flex-wrap: wrap;
     margin-top: v.$spacing-md;
     justify-content: space-between;
-        row-gap: 32px;
+    row-gap: 32px;
+    position: relative;
+
+    &::after {
+      content: '\16a1 \16a5 \16a9 \16ad \16b5 \16b9';
+      position: absolute;
+      font-size: 8rem;
+      bottom: -20%;
+      right: 8%;
+      opacity: 0.08;
+      color: v.$color-accent-blue;
+      white-space: nowrap;
+      transform: rotate(-20deg);
+      pointer-events: none;
+      z-index: 0;
+      text-shadow: 0 0 15px rgba(0, 150, 255, 0.4);
+    }
   }
   .rune-card{
     width: 32%;
@@ -70,14 +136,57 @@
     padding: 24px;
     text-align: center;
     color: #00f0ff;
+    position: relative;
 
-      @media (max-width: 768px){
-        width: 49%;
-      }
+    @media (max-width: 768px){
+      width: 49%;
+    }
 
     &:hover{
       box-shadow: 0 0 12px #00f0ff99;
+    }
 
+    // Додаємо декоративні руни до кожної картки
+    &:nth-child(3n+1)::before {
+      content: '\16a0 \16a4 \16a8';
+      position: absolute;
+      font-size: 3rem;
+      top: -15px;
+      right: -20px;
+      opacity: 0.04;
+      color: v.$color-accent-cyan;
+      transform: rotate(15deg);
+      pointer-events: none;
+      z-index: 0;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    }
+
+    &:nth-child(3n+2)::after {
+      content: '\16b0 \16b4 \16b8';
+      position: absolute;
+      font-size: 3rem;
+      bottom: -15px;
+      left: -20px;
+      opacity: 0.04;
+      color: v.$color-accent-blue;
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 0;
+      text-shadow: 0 0 8px rgba(0, 150, 255, 0.6);
+    }
+
+    &:nth-child(3n+3)::before {
+      content: '\16c0 \16c4 \16c8';
+      position: absolute;
+      font-size: 3rem;
+      top: 50%;
+      left: -25px;
+      transform: translateY(-50%) rotate(90deg);
+      opacity: 0.04;
+      color: v.$color-accent-cyan;
+      pointer-events: none;
+      z-index: 0;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
     }
   }
 }

@@ -104,8 +104,10 @@ font-size: v.$font-size-xxl;
   border-top: 2px solid v.$color-accent-cyan;
   padding-left: 2rem;
   position: relative;
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  gap: v.$spacing-xl;
+  justify-content: space-between;
 }
 
 .timeline-item {
@@ -131,13 +133,17 @@ font-size: v.$font-size-xxl;
 
   h3 {
     color: v.$color-accent-cyan;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
     margin-left: 0.1rem;
+    font-size: 1.1rem;
+    font-weight: v.$font-weight-bold;
   }
 
   p {
     color: v.$color-text-muted;
     margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
 
@@ -157,5 +163,24 @@ font-size: v.$font-size-xxl;
   height: 100%;
   z-index: 999; // Частинки будуть під контентом (який має z-index: 1)
   pointer-events: none;
+}
+
+// Адаптивність для мобільних пристроїв
+@media (max-width: 768px) {
+  .about__timeline {
+    flex-direction: column;
+    gap: v.$spacing-lg;
+    padding-left: 1rem;
+  }
+
+  .timeline-item {
+    max-width: none;
+    width: 100%;
+    margin-left: 1rem;
+
+    &::before {
+      left: -1.5rem;
+    }
+  }
 }
 

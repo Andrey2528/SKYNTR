@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import '../styles/RuneOfTheDay.scss';
 import runes from '@/features/runes/api/runes';
 
 const RuneOfTheDay = () => {

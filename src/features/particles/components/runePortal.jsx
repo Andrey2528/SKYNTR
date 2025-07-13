@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-import '@/styles/index.scss';
+import '../styles/runePortal.scss';
 import runes from '@/features/runes/api/runes';
 
 const RunePortal = ({ size = 300, speed = 20 }) => {

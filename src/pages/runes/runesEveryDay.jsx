@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import './styles/runesEveryDay.scss';
 import RuneOfTheDay from '@/features/runes/components/runeOfTheDay';
 
 // Animation configuration

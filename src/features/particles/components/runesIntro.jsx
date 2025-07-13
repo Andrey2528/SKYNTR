@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-import '@/styles/index.scss';
+import '../styles/RunesIntro.scss';
 
 // Configuration constants
 const RUNES = ['ᛋ', 'ᚲ', 'ᛦ', 'ᚾ', 'ᛏ', 'ᚱ'];

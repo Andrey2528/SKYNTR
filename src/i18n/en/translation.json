@@ -7,7 +7,7 @@
   },
   "home": {
     "welcomeText": "Welcome to Skyntr, the cutting-edge frontend platform that fuses modern web technologies with the timeless power of ancient runes.",
-    "getStarted": "Get Started",
+    "getStarted": "More information",
     "projects": "PROJECTS",
     "yearsOfWork": "YEARS\nOF WORK",
     "year_one": "year",
@@ -196,7 +196,7 @@
         "type1": "E-commerce",
         "type2": "One-page Website",
         "type3": "Multi-page Website",
-        "urlNotAviable": "The website is currently not publicly available",
+        "urlNotAviable": "Unavailable",
         "old": "(Old design)",
         "timeWork": {
             "title": "Time Spent",

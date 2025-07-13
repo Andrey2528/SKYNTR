@@ -6,16 +6,67 @@
   color: v.$color-text-primary;
   width: 100%;
   height: fit-content;
+  position: relative;
+  overflow: hidden;
+
+  // Основні декоративні руни на фоні
+  &::before {
+    content: '\16a0 \16a4 \16a8 \16ac \16b0 \16b4 \16b8 \16bc';
+    position: absolute;
+    font-size: 12rem;
+    top: 10%;
+    left: -8%;
+    opacity: 0.06;
+    color: v.$color-accent-cyan;
+    white-space: nowrap;
+    transform: rotate(-20deg);
+    pointer-events: none;
+    z-index: 0;
+    text-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+  }
+
+  &::after {
+    content: '\16c0 \16c4 \16c8 \16cc \16d0 \16d4 \16d8 \16dc';
+    position: absolute;
+    font-size: 10rem;
+    bottom: 15%;
+    right: -5%;
+    opacity: 0.08;
+    color: v.$color-accent-blue;
+    white-space: nowrap;
+    transform: rotate(25deg);
+    pointer-events: none;
+    z-index: 0;
+    text-shadow: 0 0 20px rgba(0, 150, 255, 0.5);
+  }
 
   &__header {
     text-align: center;
     margin-bottom: 3rem;
+    position: relative;
+
+    &::before {
+      content: '\16b1 \16b5 \16b9 \16bd \16c1 \16c5';
+      position: absolute;
+      font-size: 8rem;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%) rotate(10deg);
+      opacity: 0.04;
+      color: v.$color-accent-cyan;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+    }
 
     h1 {
       font-size: 3rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: v.$color-accent-cyan;
+      position: relative;
+      z-index: 1;
     }
 
     .chronicles__intro {
@@ -23,13 +74,32 @@
       color: v.$color-text-muted;
       max-width: 640px;
       margin: 1rem auto 0;
+      position: relative;
+      z-index: 1;
     }
   }
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+    padding-bottom: 4rem; // Додаємо відступ знизу для декоративних елементів
+
+    &::after {
+      content: '\16a1 \16a5 \16a9 \16ad \16b1 \16b5';
+      position: absolute;
+      font-size: 6rem;
+      bottom: -10%;
+      right: 5%;
+      opacity: 0.05;
+      color: v.$color-accent-blue;
+      white-space: nowrap;
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 0;
+      text-shadow: 0 0 12px rgba(0, 150, 255, 0.5);
+    }
   }
 }
 
@@ -41,10 +111,34 @@
   border-radius: v.$border-radius-md;
   box-shadow: v.$shadow-soft;
   transition: v.$transition-smooth;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  // Додаємо декоративні руни до кожної картки
+  &::before {
+    content: '\16a0 \16a4 \16a8';
+    position: absolute;
+    font-size: 3rem;
+    top: -15px;
+    left: -20px;
+    opacity: 0.03;
+    color: v.$color-accent-cyan;
+    transform: rotate(-20deg);
+    pointer-events: none;
+    z-index: 0;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+  }
 
   &:hover {
     border-color: v.$color-accent-cyan;
     box-shadow: 0 0 10px rgba(v.$color-accent-cyan, 0.2);
+    transform: translateY(-2px);
+
+    &::before {
+      opacity: 0.06;
+      transform: rotate(20deg) scale(1.1);
+    }
   }
 
   &__header {
@@ -78,6 +172,21 @@
         text-transform: uppercase;
         color: v.$color-text-muted;
         letter-spacing: 0.05em;
+      }
+
+      // Додаємо декоративний елемент до rune-symbol
+      &::after {
+        content: '\16b0 \16b4';
+        position: absolute;
+        font-size: 1.5rem;
+        top: 50%;
+        left: -30px;
+        transform: translateY(-50%) rotate(-90deg);
+        opacity: 0.02;
+        color: v.$color-accent-blue;
+        pointer-events: none;
+        z-index: 0;
+        text-shadow: 0 0 5px rgba(0, 150, 255, 0.3);
       }
 
       // при наведенні на картку — світиться символ
@@ -140,9 +249,19 @@
 
   &__description {
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.6;
     color: v.$color-text-primary;
+    flex-grow: 1;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(v.$color-accent-cyan, 0.1);
   }
 
   &__link {
@@ -152,9 +271,95 @@
     color: v.$color-accent-blue;
     border-bottom: 1px solid transparent;
     transition: v.$transition-fast;
+    padding: 0.5rem 1rem;
+    background: rgba(v.$color-accent-blue, 0.1);
+    border-radius: v.$border-radius-sm;
 
     &:hover {
       border-color: v.$color-accent-blue;
+      background: rgba(v.$color-accent-blue, 0.2);
+      transform: translateY(-1px);
+    }
+  }
+
+  &__unavailable {
+    font-size: 0.85rem;
+    color: v.$color-text-muted;
+    font-style: italic;
+    padding: 0.5rem 1rem;
+    background: rgba(v.$color-text-muted, 0.1);
+    border-radius: v.$border-radius-sm;
+    white-space: nowrap;
+    min-width: fit-content;
+  }
+
+  &__time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+
+    .time-label {
+      font-size: 0.75rem;
+      color: v.$color-text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .time-value {
+      font-size: 0.9rem;
+      color: v.$color-accent-cyan;
+      font-weight: v.$font-weight-bold;
+    }
+  }
+}
+
+// Адаптивність для мобільних пристроїв
+@media (max-width: 768px) {
+  .chronicles {
+    padding: 2rem 1rem;
+
+    &::before {
+      font-size: 8rem;
+      top: 5%;
+      left: -15%;
+    }
+
+    &::after {
+      font-size: 6rem;
+      bottom: 10%;
+      right: -10%;
+    }
+
+    &__header::before {
+      font-size: 5rem;
+      top: -15%;
+    }
+  }
+
+  .chronicle-entry {
+    &::before {
+      font-size: 2rem;
+      top: -10px;
+      right: -15px;
+    }
+  }
+
+  .rune-symbol::after {
+    font-size: 1rem;
+    left: -20px;
+  }
+
+  .chronicle-entry {
+    &__footer {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-top: auto;
+    }
+
+    &__time {
+      align-items: flex-start;
     }
   }
 }

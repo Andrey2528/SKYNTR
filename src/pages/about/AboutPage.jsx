@@ -2,7 +2,7 @@
 import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-import '@/styles/index.scss';
+import './styles/about.scss';
 import RuneParticles from '@/features/particles/components/RuneParticles/RuneParticles';
 
 // Configuration constants

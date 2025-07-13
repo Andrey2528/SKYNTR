@@ -28,7 +28,7 @@ export const portfolioCard = [
         url: 'https://andrey2528.github.io/GrillCalc/',
         img: img12,
         description: 'portfolioCard.description.description12',
-        timeToEndWork: '3 portfolioCard.timeWork.Hours1',
+        timeToEndWork: '3 portfolioCard.timeWork.Hours',
     },
     {
         id: 11,
@@ -43,7 +43,7 @@ export const portfolioCard = [
         url: 'https://andrey2528.github.io/PortfolioAZ/#/',
         img: img11,
         description: 'portfolioCard.description.description11',
-        timeToEndWork: '20 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '20 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 10,
@@ -58,7 +58,7 @@ export const portfolioCard = [
         url: 'portfolioCard.urlNotAviable',
         img: img9,
         description: 'portfolioCard.description.description9',
-        timeToEndWork: '30 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '30 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 9,
@@ -73,12 +73,12 @@ export const portfolioCard = [
         url: 'https://andrey2528.github.io/1_drop_socks/',
         img: img10,
         description: 'portfolioCard.description.description10',
-        timeToEndWork: '7 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '7 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 8,
         title: 'portfolioCard.title.title8',
-        subTitle: 'portfolioCard.description.subTitle',
+        subTitle: 'portfolioCard.subTitle',
         year: '2023',
         design: '-',
         role: 'portfolioCard.role1',
@@ -88,7 +88,7 @@ export const portfolioCard = [
         url: 'http://sketch2site.com',
         img: img8,
         description: 'portfolioCard.description.description8',
-        timeToEndWork: '30 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '30 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 7,
@@ -103,7 +103,7 @@ export const portfolioCard = [
         url: 'http://batumikarting.ge',
         img: img7,
         description: 'portfolioCard.description.description7',
-        timeToEndWork: '200 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '200 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 6,
@@ -118,7 +118,7 @@ export const portfolioCard = [
         url: 'portfolioCard.urlNotAviable',
         img: img6,
         description: 'portfolioCard.description.description6',
-        timeToEndWork: '15 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '15 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 5,
@@ -132,7 +132,7 @@ export const portfolioCard = [
         type: 'portfolioCard.type3',
         img: img5,
         description: 'portfolioCard.description.description5',
-        timeToEndWork: '100 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '100 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 4,
@@ -147,7 +147,7 @@ export const portfolioCard = [
         url: 'https://andrey2528.github.io/people-taback/',
         img: img4,
         description: 'portfolioCard.description.description4',
-        timeToEndWork: '9 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '9 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 3,
@@ -162,7 +162,7 @@ export const portfolioCard = [
         url: 'https://fairpartner.pl/',
         img: img3,
         description: 'portfolioCard.description.description3',
-        timeToEndWork: '20 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '20 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 2,
@@ -177,7 +177,7 @@ export const portfolioCard = [
         url: 'portfolioCard.urlNotAviable',
         img: img2,
         description: 'portfolioCard.description.description2',
-        timeToEndWork: '10 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '10 portfolioCard.timeWork.Hours_plural',
     },
     {
         id: 1,
@@ -192,7 +192,7 @@ export const portfolioCard = [
         url: 'portfolioCard.urlNotAviable',
         img: img1,
         description: 'portfolioCard.description.description1',
-        timeToEndWork: '10 portfolioCard.timeWork.Hours2',
+        timeToEndWork: '10 portfolioCard.timeWork.Hours_plural',
     },
 ];
 

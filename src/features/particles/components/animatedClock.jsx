@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-import '@/styles/index.scss';
+
 
 // Configuration constants
 const UPDATE_INTERVAL = 1000;

@@ -1,0 +1,42 @@
+// Runes Every Day page styles
+.runes-page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &__header {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00f0ff;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    &__content {
+        display: grid;
+        gap: 2rem;
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .runes-page {
+        padding: 1rem;
+
+        &__header {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    }
+} 

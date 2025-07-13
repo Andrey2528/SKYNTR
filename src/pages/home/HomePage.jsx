@@ -3,17 +3,21 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ReactGA from 'react-ga4';
 
-import '@/styles/index.scss';
+import './styles/homePage.scss';
 import AnimatedSpan from '@/features/particles/components/animatedSpan';
 import AnimatedClock from '@/features/particles/components/animatedClock';
 import AtmosphericUpdate from '@/features/atmospheric/components/AtmosphericUpdate';
-import RunePortal from '@/features/particles/components/runePortal';
+import { NavLink } from 'react-router-dom';
+import {
+
+    PAGE_ABOUT,
+} from '@/router/routes';
+import SvgController from '@/shared/components/svgController';
 
 // Configuration constants
 const START_DATE = new Date(2019, 8); // September 2019
 const ANIMATION_DURATION = 1;
-const PORTAL_SIZE = 200;
-const PORTAL_SPEED = 25;
+
 const STATS_ANIMATION_DURATION = 1500;
 const EXPERIENCE_ANIMATION_DURATION = 2000;
 
@@ -30,7 +34,9 @@ const HomePage = () => {
     // Memoize experience calculation to prevent recalculation on every render
     const experienceData = useMemo(() => {
         const now = new Date();
-        const monthsOfExperience = (now.getFullYear() - START_DATE.getFullYear()) * 12 + (now.getMonth() - START_DATE.getMonth());
+        const monthsOfExperience =
+            (now.getFullYear() - START_DATE.getFullYear()) * 12 +
+            (now.getMonth() - START_DATE.getMonth());
         const years = Math.floor(monthsOfExperience / 12);
         const months = monthsOfExperience % 12;
 
@@ -78,11 +84,16 @@ const HomePage = () => {
                             <p className="dashboard__subtitle">
                                 {t('home.welcomeText')}
                             </p>
-                            <button className="dashboard__cta">
-                                {t('home.getStarted')}
-                            </button>
+                            <NavLink
+                                to={PAGE_ABOUT}
+                            >
+                                <button className="dashboard__cta">
+                                    {t('home.getStarted')}
+                                    <SvgController name="arrow-right" />
+                                </button>
+                            </NavLink>
+                            
                         </div>
-                        <RunePortal size={PORTAL_SIZE} speed={PORTAL_SPEED} />
                     </div>
                 </section>
 
@@ -92,7 +103,11 @@ const HomePage = () => {
                             {t('home.projects')}
                         </div>
                         <div className="stat-card__value">
-                            <AnimatedSpan from={0} to={12} duration={STATS_ANIMATION_DURATION} />
+                            <AnimatedSpan
+                                from={0}
+                                to={12}
+                                duration={STATS_ANIMATION_DURATION}
+                            />
                         </div>
                     </div>
 
