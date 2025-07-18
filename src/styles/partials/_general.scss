@@ -51,17 +51,11 @@ body {
     @media (max-width: 720px) {
       flex-direction: column;
       align-items: center;
+      width: 96%;
+              margin: 0 auto;
+        border-top: 0;
     }
 
-    // Main content area (Outlet)
-    > *:not(.dashboard__sidebar):not(.rune-rain-loader) {
-      @media (max-width: 720px) {
-        width: 96%;
-        max-width: 1200px;
-        margin: 0 auto;
-        border-top: 0;
-      }
-    }
   }
 }
 

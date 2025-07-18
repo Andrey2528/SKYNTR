@@ -52,6 +52,7 @@
     color: #00f0ff;
     box-shadow: 0 0 12px #00f0ff99;
     position: relative;
+    width: 100%;
     // Видаляємо декоративні елементи для кращої читабельності
   }
 
@@ -189,4 +190,8 @@
       text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
     }
   }
+}
+
+.rune-of-the-day.rune-card{
+  width: 100%;
 }

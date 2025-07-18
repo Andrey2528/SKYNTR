@@ -10,7 +10,10 @@ const RuneOfTheDay = () => {
 
     useEffect(() => {
         const today = new Date();
-        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        const seed =
+            today.getFullYear() * 10000 +
+            (today.getMonth() + 1) * 100 +
+            today.getDate();
         const index = seed % runes.length;
         setRune(runes[index]);
     }, []);
@@ -31,7 +34,7 @@ const RuneOfTheDay = () => {
 
     return (
         <section className="rune-page">
-            <section className="rune-of-the-day rune-card">
+            <section className="rune-of-the-day rune-card ">
                 <h2 className="rune-title">{t('nav.rune')}</h2>
                 <div className="rune-symbol">{rune.symbol}</div>
                 <div className="rune-name">{rune.name}</div>
@@ -40,9 +43,7 @@ const RuneOfTheDay = () => {
             </section>
             <section className="rune-container">
                 <h2 className="rune-title">{t('runes.allRunesTitle')}</h2>
-                <div className="rune-list">
-                    {runeList}
-                </div>
+                <div className="rune-list">{runeList}</div>
             </section>
         </section>
     );

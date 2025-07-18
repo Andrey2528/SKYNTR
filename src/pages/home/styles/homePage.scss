@@ -247,6 +247,9 @@
   text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
   text-align: right;
   z-index: 100;
+      @media (max-width: v.$mobile_menu_breakpoint) {
+      display: none;
+    }
 
   .clock-time {
     display: flex;
@@ -301,9 +304,11 @@
 
     &__cta {
       font-size: 1rem;
-      padding: v.$spacing-xs v.$spacing-md;
       margin: 0 auto;
       display: block;
+      span{
+        display: none;
+      }
     }
 
     &__stats {
@@ -391,12 +396,12 @@
 
     &__subtitle {
       font-size: 0.9rem;
-      margin-bottom: v.$spacing-sm;
+      margin-bottom: v.$spacing-md;
     }
 
     &__cta {
       font-size: 0.9rem;
-      padding: v.$spacing-xs v.$spacing-sm;
+            margin-bottom: v.$spacing-lg;
     }
 
     &__stats {

@@ -57,7 +57,10 @@ const RunesIntro = ({ onComplete }) => {
                         className="skyntr-logo"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: LOGO_DURATION, delay: LOGO_ANIMATION_DELAY }}
+                        transition={{
+                            duration: LOGO_DURATION,
+                            delay: LOGO_ANIMATION_DELAY,
+                        }}
                     >
                         SKYNTR
                     </motion.h1>

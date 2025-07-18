@@ -317,7 +317,7 @@
 // Адаптивність для мобільних пристроїв
 @media (max-width: 768px) {
   .chronicles {
-    padding: 2rem 1rem;
+    padding: 2rem 0;
 
     &::before {
       font-size: 8rem;
