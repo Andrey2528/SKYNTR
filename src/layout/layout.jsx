@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import { NavbarAside } from '@/shared/components';
 import RunesIntro from '@/features/particles/components/runesIntro';
