@@ -28,6 +28,7 @@ $spacing-sm: 8px;
 $spacing-md: 16px;
 $spacing-lg: 32px;
 $spacing-xl: 64px;
+$spacing-xxl: 128px;
 
 // Borders & Radius
 $border-radius-sm: 4px;
@@ -45,6 +46,7 @@ $font-size-lg: 20px;
 $font-size-xl: 36px;
 $font-size-xxl: 48px;
 $font-weight-normal: 400;
+$font-weight-medium: 500;
 $font-weight-bold: 700;
 $text-transform-headings: uppercase;
 $letter-spacing-wide: 0.08em;
@@ -55,6 +57,7 @@ $shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2);
 
 // Transitions
 $transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
 $transition-smooth: 0.4s ease-in-out;
 
 // Media Queries Template

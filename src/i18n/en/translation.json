@@ -148,8 +148,52 @@
   "chroniclesPage": {
     "headerTitle": "Chronicles",
     "headerIntro": "In every project, a spark. In every interface, a trace of mind. Here lie the chronicles of a digital forge.",
-    "viewProject": "View Project"  
+    "viewProject": "View Project",
+    "lifeJourney": {
+      "title": "Life Journey",
+      "intro": "Each stage of my life is a new page in the book of experience. From first steps to mastery."
+    }
     },
+  "lifeJourney": {
+    "childhood": {
+      "title": "Childhood and Formation",
+      "subtitle": "First steps in the world",
+      "description": "Here began my journey. First life lessons, character formation, and discovering the world around me. A time when the foundations of future personality were laid."
+    },
+    "school": {
+      "title": "School Years",
+      "subtitle": "Self-determination and learning",
+      "description": "Years of personality formation, first serious challenges, and choosing direction. Here I first understood my interest in technology and creativity."
+    },
+    "university": {
+      "title": "University Years",
+      "subtitle": "Diving into the IT world",
+      "description": "Deep study of programming, first serious projects, and understanding that I want to connect my life with development. Time of experiments and discoveries."
+    },
+    "firstJob": {
+      "title": "First Job",
+      "subtitle": "Beginning of professional path",
+      "description": "First steps in professional development. Working with React, mastering modern technologies, and understanding how real teams work."
+    },
+    "freelance": {
+      "title": "Freelance and Own Projects",
+      "subtitle": "Independence and growth",
+      "description": "Period of active skill development, working with various clients, and creating own projects. Time when I learned to work independently."
+    },
+    "present": {
+      "title": "Present",
+      "subtitle": "Mastery and mentorship",
+      "description": "Today is constant development, working on complex projects, mentorship, and creating Skyntr. Combining technology with wisdom."
+    },
+    "milestones": {
+      "foundation": "Foundation",
+      "discovery": "Discovery",
+      "growth": "Growth",
+      "achievement": "Achievement",
+      "independence": "Independence",
+      "mastery": "Mastery"
+    }
+  },
 "about": {
   "subtitle": "Code. Myth. Ideology.",
   "mission": "Skyntr — [“Skin” + “Inter”]<1/>The one who shapes the layer of interaction between human and machine, between structure and feeling.<1/>It's not just 'frontend' — it's a project merging technology and mythology.",

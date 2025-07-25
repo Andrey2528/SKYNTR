@@ -1,0 +1,635 @@
+@use '@/styles/partials/_variables.scss' as *;
+
+.chronicles--life-journey {
+  padding: $spacing-lg;
+  background: $color-bg-dark;
+  color: $color-text-primary;
+  font-family: $font-family-base;
+  overflow-x: hidden; // Запобігаємо горизонтальному скролу
+  width: 98%;
+  position: relative;
+  min-height: 100vh;
+  border: 1px solid $color-accent-cyan;
+  border-left: none;
+    border-radius: 0 $border-radius-md $border-radius-md 0;
+}
+
+// Фонові ефекти
+.chronicles__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+// Світлові ефекти
+.chronicles__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  
+  &--top {
+    top: 5%;
+    left: 15%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, $color-accent-cyan, transparent 70%);
+    animation: pulse 6s ease-in-out infinite;
+  }
+  
+  &--center {
+    top: 40%;
+    right: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, $color-accent-blue, transparent 70%);
+    animation: pulse 8s ease-in-out infinite 3s;
+  }
+  
+  &--bottom {
+    bottom: 10%;
+    left: 5%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, $color-accent-cyan, transparent 70%);
+    animation: pulse 7s ease-in-out infinite 5s;
+  }
+  
+  // Додаткові світлові плями
+  &--middle-left {
+    top: 60%;
+    left: 80%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, $color-accent-blue, transparent 60%);
+    animation: pulse 9s ease-in-out infinite 2s;
+  }
+  
+  &--middle-right {
+    top: 25%;
+    left: 5%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, $color-accent-cyan, transparent 65%);
+    animation: pulse 5s ease-in-out infinite 4s;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+}
+
+// Плаваючі руни на фоні
+.chronicles__floating-runes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.floating-rune {
+  position: absolute;
+  font-size: 2.5rem;
+  color: var(--rune-color, $color-accent-cyan);
+  opacity: 0.08;
+  animation: float 15s ease-in-out infinite;
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+  text-shadow: 0 0 30px currentColor;
+  
+  &--1 {
+    top: 8%;
+    left: 85%;
+    animation-duration: 25s;
+  }
+  
+  &--2 {
+    top: 20%;
+    left: 2%;
+    animation-duration: 22s;
+    animation-delay: 3s;
+  }
+  
+  &--3 {
+    top: 35%;
+    right: 5%;
+    animation-duration: 28s;
+    animation-delay: 6s;
+  }
+  
+  &--4 {
+    top: 50%;
+    left: 8%;
+    animation-duration: 20s;
+    animation-delay: 9s;
+  }
+  
+  &--5 {
+    top: 65%;
+    right: 12%;
+    animation-duration: 30s;
+    animation-delay: 12s;
+  }
+  
+  &--6 {
+    top: 78%;
+    left: 75%;
+    animation-duration: 24s;
+    animation-delay: 15s;
+  }
+  
+  &--7 {
+    top: 92%;
+    left: 15%;
+    animation-duration: 26s;
+    animation-delay: 18s;
+  }
+  
+  &--8 {
+    top: 45%;
+    left: 92%;
+    animation-duration: 21s;
+    animation-delay: 21s;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.05;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translateY(-30px) rotate(270deg);
+    opacity: 0.12;
+  }
+}
+
+// Частинки рун
+.chronicles__rune-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.chronicles__header {
+  text-align: center;
+  margin-bottom: $spacing-xxl;
+  padding: 0 $spacing-md; // Додаємо padding для мобільних
+  position: relative;
+  z-index: 10;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: $font-weight-bold;
+    color: $color-accent-cyan;
+    margin-bottom: $spacing-md;
+    letter-spacing: $letter-spacing-wide;
+  }
+
+  .chronicles__intro {
+    font-size: 1.2rem;
+    color: $color-text-muted;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.chronicles__timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md; // Додаємо горизонтальний padding
+  z-index: 10;
+}
+
+// Основна лінія timeline
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: -100px;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    $color-accent-cyan,
+    rgba($color-accent-cyan, 0.3)
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: $color-accent-cyan;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba($color-accent-cyan, 0.6);
+  }
+}
+
+// Кожен етап життя
+.chronicle-entry {
+  position: relative;
+  margin-bottom: $spacing-xl;
+  display: flex;
+  align-items: flex-start;
+  z-index: 2;
+
+  // Альтернативне розташування (ліво-право)
+  &:nth-child(odd) {
+    flex-direction: row;
+    
+    .chronicle-entry__content {
+      margin-right: auto;
+      text-align: right;
+      max-width: calc(50% - 30px); // Обмежуємо ширину
+    }
+    
+    .chronicle-entry__milestone-point {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    
+    .chronicle-entry__content {
+      margin-left: auto;
+      text-align: left;
+      max-width: calc(50% - 30px); // Обмежуємо ширину
+    }
+    
+    .chronicle-entry__milestone-point {
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
+}
+
+.chronicle-entry__content {
+  background: rgba($color-gray-soft, 0.8);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  max-width: 45%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($color-accent-cyan, 0.2);
+  transition: all $transition-normal;
+  box-sizing: border-box; // Забезпечуємо правильний розрахунок розмірів
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba($color-accent-cyan, 0.2);
+    border-color: rgba($color-accent-cyan, 0.4);
+  }
+}
+
+// Точка на timeline для кожного етапу
+.chronicle-entry__milestone-point {
+  position: absolute;
+  top: 20px;
+  width: 24px;
+  height: 24px;
+  background: $color-bg-dark;
+  border: 3px solid $color-accent-cyan;
+  border-radius: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: $color-accent-cyan;
+    border-radius: 50%;
+    transition: all $transition-fast;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba($color-accent-cyan, 0.6);
+    
+    &::before {
+      background: $color-bg-dark;
+    }
+  }
+}
+
+// Стилі для різних milestone'ів
+.chronicle-entry--foundation .chronicle-entry__milestone-point {
+  border-color: #ff6b6b;
+  &::before { background: #ff6b6b; }
+}
+
+.chronicle-entry--discovery .chronicle-entry__milestone-point {
+  border-color: #4ecdc4;
+  &::before { background: #4ecdc4; }
+}
+
+.chronicle-entry--growth .chronicle-entry__milestone-point {
+  border-color: #45b7d1;
+  &::before { background: #45b7d1; }
+}
+
+.chronicle-entry--achievement .chronicle-entry__milestone-point {
+  border-color: #f9ca24;
+  &::before { background: #f9ca24; }
+}
+
+.chronicle-entry--independence .chronicle-entry__milestone-point {
+  border-color: #f0932b;
+  &::before { background: #f0932b; }
+}
+
+.chronicle-entry--mastery .chronicle-entry__milestone-point {
+  border-color: $color-accent-cyan;
+  &::before { background: $color-accent-cyan; }
+}
+
+// Рунічний символ
+.rune-symbol {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+  
+  &__char {
+    font-size: 2rem;
+    color: $color-accent-cyan;
+    font-weight: $font-weight-bold;
+  }
+  
+  &__name {
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+}
+
+// Заголовок етапу
+.chronicle-entry__title {
+  font-size: 1.5rem;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.chronicle-entry__subtitle {
+  font-size: 1rem;
+  color: $color-accent-cyan;
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-medium;
+}
+
+// Timeline інфо
+.chronicle-entry__timeline {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+  font-size: 0.9rem;
+  
+  .chronicle-entry__date {
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+  }
+  
+  .chronicle-entry__period {
+    color: $color-text-muted;
+  }
+}
+
+// Теги
+.chronicle-entry__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+  
+  .tag {
+    background: rgba($color-accent-cyan, 0.2);
+    color: $color-accent-cyan;
+    padding: 4px 8px;
+    border-radius: $border-radius-sm;
+    font-size: 0.8rem;
+    border: 1px solid rgba($color-accent-cyan, 0.3);
+  }
+}
+
+// Опис
+.chronicle-entry__description {
+  color: $color-text-muted;
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+}
+
+// Milestone індикатор
+.chronicle-entry__milestone {
+  .milestone-indicator {
+    background: rgba($color-accent-cyan, 0.1);
+    color: $color-accent-cyan;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-size: 0.85rem;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    border: 1px solid rgba($color-accent-cyan, 0.3);
+  }
+}
+
+// Мобільна адаптація
+@media (max-width: 768px) {
+  .chronicles--life-journey {
+    padding: $spacing-md;
+  }
+
+  .chronicles__timeline {
+    padding: $spacing-md $spacing-sm;
+  }
+
+  .timeline-line {
+    left: 25px;
+  }
+
+  .chronicle-entry {
+    flex-direction: column !important;
+    margin-bottom: $spacing-lg !important;
+    
+    .chronicle-entry__content {
+      max-width: 100% !important;
+      margin-left: 40px !important;
+      margin-right: 0 !important;
+      padding: $spacing-md !important;
+      text-align: left !important;
+    }
+    
+    .chronicle-entry__milestone-point {
+      left: 25px !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+
+  .chronicles__header {
+    margin-bottom: $spacing-xl;
+    padding: 0 $spacing-sm;
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: $spacing-sm;
+    }
+
+    .chronicles__intro {
+      font-size: 1rem;
+    }
+  }
+
+  .chronicle-entry__title {
+    font-size: 1.2rem !important;
+    margin-bottom: $spacing-xs !important;
+  }
+
+  .chronicle-entry__subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: $spacing-xs !important;
+  }
+
+  .chronicle-entry__timeline {
+    font-size: 0.8rem !important;
+    margin-bottom: $spacing-sm !important;
+  }
+
+  .chronicle-entry__description {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: $spacing-sm !important;
+  }
+
+  .rune-symbol {
+    margin-bottom: $spacing-sm !important;
+    
+    &__char {
+      font-size: 1.5rem !important;
+    }
+    
+    &__name {
+      font-size: 0.8rem !important;
+    }
+  }
+
+  .chronicle-entry__tags {
+    margin-bottom: $spacing-sm !important;
+    
+    .tag {
+      font-size: 0.7rem !important;
+      padding: 2px 6px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .chronicles--life-journey {
+    padding: $spacing-sm;
+  }
+
+  .chronicles__timeline {
+    padding: $spacing-sm;
+  }
+
+  .chronicle-entry__content {
+    margin-left: 35px !important;
+    padding: $spacing-sm !important;
+  }
+  
+  .timeline-line {
+    left: 18px;
+  }
+  
+  .chronicle-entry__milestone-point {
+    left: 18px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .chronicles__header {
+    h1 {
+      font-size: 1.5rem !important;
+    }
+
+    .chronicles__intro {
+      font-size: 0.9rem !important;
+    }
+  }
+
+  .chronicle-entry__title {
+    font-size: 1.1rem !important;
+  }
+
+  .chronicle-entry__subtitle {
+    font-size: 0.85rem !important;
+  }
+
+  .chronicle-entry__timeline {
+    font-size: 0.75rem !important;
+  }
+
+  .chronicle-entry__description {
+    font-size: 0.85rem !important;
+  }
+
+  .rune-symbol {
+    &__char {
+      font-size: 1.3rem !important;
+    }
+    
+    &__name {
+      font-size: 0.7rem !important;
+    }
+  }
+
+  .chronicle-entry__tags .tag {
+    font-size: 0.65rem !important;
+    padding: 1px 4px !important;
+  }
+
+  .milestone-indicator {
+    font-size: 0.7rem !important;
+    padding: 2px 6px !important;
+  }
+}

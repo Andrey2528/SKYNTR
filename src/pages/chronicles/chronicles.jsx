@@ -2,96 +2,145 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import './styles/chronicles.scss';
-import portfolioCard from '@/features/portfolio/api/portfolioCard';
+import '@/styles/pages/chronicles-timeline.scss';
 import runes from '@/features/runes/api/runes';
+import RuneParticles from '@/features/particles/components/RuneParticles/RuneParticles';
 
-const ChronicleEntry = ({ entry, rune }) => {
+// Життєвий шлях - ключові етапи
+const lifeJourneyData = [
+    {
+        id: 1,
+        titleKey: 'lifeJourney.childhood.title',
+        subtitleKey: 'lifeJourney.childhood.subtitle',
+        year: '2002-2015',
+        period: '13 років',
+        descriptionKey: 'lifeJourney.childhood.description',
+        tags: 'Дитинство, Навчання, Перші кроки',
+        img: '/images/journey/childhood.jpg',
+        milestone: 'foundation',
+    },
+    {
+        id: 2,
+        titleKey: 'lifeJourney.school.title',
+        subtitleKey: 'lifeJourney.school.subtitle',
+        year: '2015-2019',
+        period: '4 роки',
+        descriptionKey: 'lifeJourney.school.description',
+        tags: 'Школа, Самовизначення, Перші проекти',
+        img: '/images/journey/school.jpg',
+        milestone: 'discovery',
+    },
+    {
+        id: 3,
+        titleKey: 'lifeJourney.university.title',
+        subtitleKey: 'lifeJourney.university.subtitle',
+        year: '2019-2023',
+        period: '4 роки',
+        descriptionKey: 'lifeJourney.university.description',
+        tags: 'Університет, IT, Програмування',
+        img: '/images/journey/university.jpg',
+        milestone: 'growth',
+    },
+    {
+        id: 4,
+        titleKey: 'lifeJourney.firstJob.title',
+        subtitleKey: 'lifeJourney.firstJob.subtitle',
+        year: '2020-2024',
+        period: '4 роки',
+        descriptionKey: 'lifeJourney.firstJob.description',
+        tags: 'Перша робота, Frontend, React',
+        img: '/images/journey/first-job.jpg',
+        milestone: 'achievement',
+    },
+    {
+        id: 5,
+        titleKey: 'lifeJourney.freelance.title',
+        subtitleKey: 'lifeJourney.freelance.subtitle',
+        year: '2021-2025',
+        period: '4 роки',
+        descriptionKey: 'lifeJourney.freelance.description',
+        tags: 'Фріланс, Власні проекти, Розвиток',
+        img: '/images/journey/freelance.jpg',
+        milestone: 'independence',
+    },
+    {
+        id: 6,
+        titleKey: 'lifeJourney.present.title',
+        subtitleKey: 'lifeJourney.present.subtitle',
+        year: '2025-теперішнє',
+        period: 'продовжується',
+        descriptionKey: 'lifeJourney.present.description',
+        tags: 'Сеніор, Менторство, Інновації',
+        img: '/images/journey/present.jpg',
+        milestone: 'mastery',
+    },
+];
+
+const LifeJourneyEntry = ({ entry, rune }) => {
     const { t } = useTranslation();
 
     // Memoize tags to prevent recalculation on every render
     const tags = useMemo(() => {
-        return entry.tag.split(', ');
-    }, [entry.tag]);
-
-    // Функція для обробки перекладів часу роботи
-    const formatTimeWork = useMemo(() => {
-        const timeString = entry.timeToEndWork;
-        if (!timeString) return '';
-
-        // Розбиваємо рядок на частини
-        const parts = timeString.split(' ');
-        if (parts.length < 2) return timeString;
-
-        const number = parseInt(parts[0]);
-        const translationKey = parts.slice(1).join(' ');
-
-        // Перекладаємо ключ з правильним числом для множини
-        const translatedKey = t(translationKey, { count: number });
-        
-        return `${number} ${translatedKey}`;
-    }, [entry.timeToEndWork, t]);
+        return entry.tags.split(', ');
+    }, [entry.tags]);
 
     return (
-        <div className="chronicle-entry">
-            <div className="chronicle-entry__header">
+        <div className={`chronicle-entry chronicle-entry--${entry.milestone}`}>
+            {/* Точка на timeline */}
+            <div className="chronicle-entry__milestone-point"></div>
+
+            {/* Контент етапу */}
+            <div className="chronicle-entry__content">
                 <div className="rune-symbol">
                     <span className="rune-symbol__char">{rune.symbol}</span>
                     <span className="rune-symbol__name">{rune.name}</span>
                 </div>
-                <img
-                    src={entry.img}
-                    alt={t(entry.title)}
-                    className="chronicle-entry__image"
-                />
-            </div>
-            <h2 className="chronicle-entry__title">{t(entry.title)}</h2>
-            <p className="chronicle-entry__subtitle">{t(entry.subTitle)}</p>
-            <p className="chronicle-entry__date">{entry.year}</p>
-            <div className="chronicle-entry__tags">
-                {tags.map((tag) => (
-                    <span key={tag} className="tag">
-                        {tag}
+
+                <h2 className="chronicle-entry__title">{t(entry.titleKey)}</h2>
+                <p className="chronicle-entry__subtitle">
+                    {t(entry.subtitleKey)}
+                </p>
+
+                <div className="chronicle-entry__timeline">
+                    <span className="chronicle-entry__date">{entry.year}</span>
+                    <span className="chronicle-entry__period">
+                        ({entry.period})
                     </span>
-                ))}
-            </div>
-            <p className="chronicle-entry__description">
-                {t(entry.description)}
-            </p>
-            <div className="chronicle-entry__footer">
-                {entry.url && !entry.url.includes('urlNotAviable') ? (
-                    <a
-                        className="chronicle-entry__link"
-                        href={entry.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {t('chroniclesPage.viewProject')}
-                    </a>
-                ) : (
-                    <span className="chronicle-entry__unavailable">
-                        {t('portfolioCard.urlNotAviable')}
+                </div>
+
+                <div className="chronicle-entry__tags">
+                    {tags.map((tag) => (
+                        <span key={tag} className="tag">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+
+                <p className="chronicle-entry__description">
+                    {t(entry.descriptionKey)}
+                </p>
+
+                <div className="chronicle-entry__milestone">
+                    <span className="milestone-indicator">
+                        {t(`lifeJourney.milestones.${entry.milestone}`)}
                     </span>
-                )}
-                <div className="chronicle-entry__time">
-                    <span className="time-label">{t('portfolioCard.timeWork.title')}:</span>
-                    <span className="time-value">{formatTimeWork}</span>
                 </div>
             </div>
         </div>
     );
 };
 
-ChronicleEntry.propTypes = {
+LifeJourneyEntry.propTypes = {
     entry: PropTypes.shape({
         id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        subTitle: PropTypes.string.isRequired,
+        titleKey: PropTypes.string.isRequired,
+        subtitleKey: PropTypes.string.isRequired,
         year: PropTypes.string.isRequired,
-        tag: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        url: PropTypes.string,
+        period: PropTypes.string.isRequired,
+        tags: PropTypes.string.isRequired,
+        descriptionKey: PropTypes.string.isRequired,
         img: PropTypes.string.isRequired,
+        milestone: PropTypes.string.isRequired,
     }).isRequired,
     rune: PropTypes.shape({
         symbol: PropTypes.string.isRequired,
@@ -102,28 +151,60 @@ ChronicleEntry.propTypes = {
 const ChroniclesPage = () => {
     const { t } = useTranslation();
 
-    // Memoize chronicle entries to prevent regeneration on every render
-    const chronicleEntries = useMemo(() => {
-        return portfolioCard.map((entry, index) => (
-            <ChronicleEntry
+    // Memoize life journey entries
+    const journeyEntries = useMemo(() => {
+        return lifeJourneyData.map((entry, index) => (
+            <LifeJourneyEntry
                 key={entry.id}
                 entry={entry}
                 rune={runes[index % runes.length]}
             />
         ));
-    }, [t]);
+    }, []);
 
     return (
-        <div className="chronicles">
+        <div className="chronicles chronicles--life-journey">
+            {/* Фонові ефекти */}
+            <div className="chronicles__background">
+                <div className="chronicles__glow chronicles__glow--top"></div>
+                <div className="chronicles__glow chronicles__glow--center"></div>
+                <div className="chronicles__glow chronicles__glow--bottom"></div>
+                <div className="chronicles__glow chronicles__glow--middle-left"></div>
+                <div className="chronicles__glow chronicles__glow--middle-right"></div>
+
+                {/* Анімовані руни на фоні */}
+                <div className="chronicles__floating-runes">
+                    {runes.slice(0, 8).map((rune, index) => (
+                        <div
+                            key={rune.name}
+                            className={`floating-rune floating-rune--${index + 1}`}
+                            style={{
+                                animationDelay: `${index * 0.5}s`,
+                                '--rune-color':
+                                    index % 2 === 0 ? '#00F0FF' : '#A4D0F4',
+                            }}
+                        >
+                            {rune.symbol}
+                        </div>
+                    ))}
+                </div>
+
+                {/* Частинки рун */}
+                <div className="chronicles__rune-particles">
+                    <RuneParticles count={12} />
+                </div>
+            </div>
+
             <header className="chronicles__header">
-                <h1>{t('chroniclesPage.headerTitle')}</h1>
+                <h1>{t('chroniclesPage.lifeJourney.title')}</h1>
                 <p className="chronicles__intro">
-                    {t('chroniclesPage.headerIntro')}
+                    {t('chroniclesPage.lifeJourney.intro')}
                 </p>
             </header>
 
-            <section className="chronicles__list">
-                {chronicleEntries}
+            <section className="chronicles__timeline">
+                <div className="timeline-line"></div>
+                {journeyEntries}
             </section>
         </div>
     );

@@ -26,7 +26,9 @@ const Layout = () => {
                 <RunesIntro onComplete={handleIntroComplete} />
             ) : (
                 <main className="Layout">
-                    <section className="Layout__section">
+                    <section
+                        className={`Layout__section ${collapsed ? 'collapsed' : ''}`}
+                    >
                         <NavbarAside
                             collapsed={collapsed}
                             setCollapsed={setCollapsed}
